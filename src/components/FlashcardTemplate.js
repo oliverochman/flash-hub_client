@@ -1,5 +1,4 @@
 import React from 'react';
-import FlashcardDisplay from './FlashcardDisplay'
 import { Container, Reveal, Card } from 'semantic-ui-react';
 
 

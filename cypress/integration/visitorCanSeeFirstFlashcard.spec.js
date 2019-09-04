@@ -4,7 +4,7 @@ describe('Visitor can see and flip first flashcard on the homepage', () => {
     cy.route({
       method: 'GET',
       url: 'http://localhost:3000/api/flash_cards',
-      response: 'fixture:flashcard.json',
+      response: 'fixture:flashcards.json',
       status: 200
     });
     cy.visit('http://localhost:3001');
@@ -13,6 +13,7 @@ describe('Visitor can see and flip first flashcard on the homepage', () => {
   it('First flash card is displayed', async () => {
     cy.get('#flashcard_1');
   });
+})
 
 //   let flashcard = [
 //     ['#1', '#question_1', '#answer_1']
@@ -24,4 +25,3 @@ describe('Visitor can see and flip first flashcard on the homepage', () => {
 //     })
 //   })
 // 
-})
