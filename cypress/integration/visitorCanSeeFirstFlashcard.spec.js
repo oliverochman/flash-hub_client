@@ -23,4 +23,5 @@ describe('Visitor can see and flip first flashcard on the homepage', () => {
 //       cy.get(flashcard[1])
 //     })
 //   })
-// })
+// 
+})
