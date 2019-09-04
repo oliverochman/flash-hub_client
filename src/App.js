@@ -1,12 +1,12 @@
 import React from 'react';
-import FlashCardTemplate from './components/FlashcardTemplate';
-import "semantic-ui-css/semantic.min.css";
+import FlashcardTemplate from './components/FlashcardTemplate';
+import 'semantic-ui-css/semantic.min.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <h1>FlashHub</h1>
-      <FlashCardTemplate />
+      <FlashcardTemplate />
     </div>
   );
 }
