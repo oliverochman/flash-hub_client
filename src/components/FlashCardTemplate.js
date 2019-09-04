@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Reveal, Card } from 'semantic-ui-react';
 
-const FlashCardTemplate = (props) => {
+const FlashcardTemplate = (props) => {
   const flashcard = props.flashcard;
   return (
     <Container>
@@ -27,4 +27,4 @@ const FlashCardTemplate = (props) => {
   )
 }
 
-export default FlashCardTemplate;
+export default FlashcardTemplate;

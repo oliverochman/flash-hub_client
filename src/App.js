@@ -1,5 +1,5 @@
 import React from 'react';
-import FlashCardTemplate from './components/FlashCardTemplate';
+import FlashCardTemplate from './components/FlashcardTemplate';
 import "semantic-ui-css/semantic.min.css";
 
 function App() {
