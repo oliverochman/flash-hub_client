@@ -8,14 +8,14 @@ const FlashCardTemplate = (props) => {
         <Reveal animated='fade'>
           <Reveal.Content visible>
             <Card style={{width: 400, height: 400}}>
-              <Card.Header verticalAlign='middle' textAlign='center'>
+              <Card.Header style={{marginTop: '10em'}} textAlign='center'>
                 Question
               </Card.Header>
             </Card>
           </Reveal.Content>
           <Reveal.Content hidden>
             <Card style={{width: 400, height: 400}}>
-              <Card.Header textAlign='center'>
+              <Card.Header style={{marginTop: '10em'}} textAlign='center'>
                 Answer
               </Card.Header>
             </Card>
