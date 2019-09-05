@@ -6,9 +6,6 @@ import axios from 'axios';
 class App extends Component {
   state = { 
     flashcards:[] 
-    // id: '',
-    // question: '',
-    // answer: ''
   };
 
   componentDidMount() {
@@ -19,8 +16,6 @@ class App extends Component {
         })
       })
   };
-  
-  //async
 
   render(){
     const flashcards = this.state.flashcards
@@ -41,7 +36,8 @@ class App extends Component {
             {flashcardDisplay}
           </Container>
         </>
-      )
-    }
-  };
+    )
+  }
+};
+
 export default App;

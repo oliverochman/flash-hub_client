@@ -10,14 +10,14 @@ describe('<Flashcard />', () => {
   };
 
   it('renders correct question', () => {
-    const describedComponent = shallow(<Flashcard flashcard={flashcard.question} />);
-    const response = 'QUESTION';
+    const describedComponent = shallow(<Flashcard flashcard={flashcard} />);
+    const response = flashcard.question;
     expect(describedComponent.contains(response)).toEqual(true);
   });
 
   it('renders correct answer', () => {
-    const describedComponent = shallow(<Flashcard flashcard={flashcard.answer} />);
-    const response = 'ANSWER';
+    const describedComponent = shallow(<Flashcard flashcard={flashcard} />);
+    const response = flashcard.answer;
     expect(describedComponent.contains(response)).toEqual(true);
   });
 })
