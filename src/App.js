@@ -1,52 +1,40 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import Flashcard from './components/Flashcard';
+import axios from 'axios';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      flashcards: [ 
-        { id: 1, 
-          question: "How can you include an external javascript file?", 
-          answer: "/script src='myfile.js'/"
-        }
-      ],
-      currentFlashcard: {}
-    }
-  }
+  state = { flashcards:[] }
 
   componentDidMount() {
-    const currentFlashcard = this.state.flashcards;
-
-    this.setState({
-      flashcard: currentFlashcard
-    })
+    axios.get('http://localhost:3000/api/flashcards')
+      .then(response => {
+        this.setState({
+          flashcards: response.data
+        })
+      })
   }
 
-  //   async currentFlashcard() {
-  //     try {
-  //       const response = await axios.get('http://localhost:3000/api/flash_cards');
-  //     this.setState({
-  //       flashcards: response.data
-  //     });
-  //   } catch (error) {
-  //     this.setState({
-  //       flashcardsDisplay: false
-  //     });
-  //   }
-  // }
+  render(){
+    const flashcards = this.state.flashcards
+    let flashcardDisplay
 
-  render() {
+    if (flashcards.length > 0) {
+      flashcardDisplay = flashcards.map(flashcard => {
+        return (
+            <Flashcard flashcard={flashcard} key={flashcard.id} />
+        )
+      })
+    }
+
     return (
-      <>
-        <Container>
-          <h1>FlashHub</h1>
-            <Flashcard />
-        </Container>
-      </>
-    );
-  }
-}
-
+        <>
+          <Container>
+            <h1>FlashHub</h1>
+            {flashcardDisplay}
+          </Container>
+        </>
+      )
+    }
+  };
 export default App;
