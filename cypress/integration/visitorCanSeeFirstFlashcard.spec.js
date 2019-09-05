@@ -8,25 +8,12 @@ describe('Visitor can see first flashcard on the homepage', () => {
       status: 200
     });
     cy.visit('http://localhost:3001');
-  })
+  });
 
-  // it('Any flashcard is visible', () => {
-  //   cy.get('.flashcard');
-  //   cy.get('.flashcard-front');
-  //   cy.get('.flashcard-back');
-  // });
-
-  // it('Correct content of flashcards is visible', () => {
-  //   cy.get('#id_1').within(() => {
-  //     cy.get('#question_1').contains('How can you include an external javascript file?');
-  //     cy.get('#answer_1').contains("/script src='myfile.js'/");
-  //   });
-  // });
-
-  it('Only one flashcard is visible', () => {
-    cy.get('.flashcard').filter('#id_1').within(() => {
+  it('Correct content of flashcard is visible', () => {
+    cy.get('#id_1').within(() => {
       cy.get('#question_1').contains('How can you include an external javascript file?');
       cy.get('#answer_1').contains("/script src='myfile.js'/");
     });
   });
-})
+});

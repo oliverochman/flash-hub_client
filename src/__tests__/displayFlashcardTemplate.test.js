@@ -20,4 +20,4 @@ describe('<Flashcard />', () => {
     const response = flashcard.answer;
     expect(describedComponent.contains(response)).toEqual(true);
   });
-})
+});

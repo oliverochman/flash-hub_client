@@ -4,8 +4,8 @@ import Flashcard from './components/Flashcard';
 import axios from 'axios';
 
 class App extends Component {
-  state = { 
-    flashcards:[] 
+  state = {
+    flashcards: []
   };
 
   componentDidMount() {
@@ -17,11 +17,11 @@ class App extends Component {
       })
   };
 
-  render(){
+  render() {
     const flashcards = this.state.flashcards
     let flashcardDisplay
 
-    if (flashcards.length = 1 ) {
+    if ((flashcards.length = 1)) {
       flashcardDisplay = flashcards.map(flashcard => {
         return (
           <Flashcard flashcard={flashcard} key={flashcard.id} />
@@ -30,14 +30,14 @@ class App extends Component {
     };
 
     return (
-        <>
-          <Container>
-            <h1>FlashHub</h1>
-            {flashcardDisplay}
-          </Container>
-        </>
+      <>
+        <Container>
+          <h1>FlashHub</h1>
+          {flashcardDisplay}
+        </Container>
+      </>
     )
-  }
+  };
 };
 
 export default App;

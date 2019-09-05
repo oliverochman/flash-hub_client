@@ -22,7 +22,7 @@
     "question": "var a = [a,b,c,d,e]. What does b = a.splice() do?",
     "answer": "a will become an empty array and b will become [a,b,c,d,e]"
   },
-  
+
   {
     "id": 5,
     "question": "Turn 'Tom', 'Bill', 'Jerry' into the string 'Tom, Bill, Jerry'",
