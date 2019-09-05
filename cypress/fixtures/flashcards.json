@@ -1,29 +1,31 @@
-{
-  "flashcard": [
-    {
-      "id": 1,
-      "question": "How can you include an external javascript file?",
-      "answer": "/script src='myfile.js'/"
-    },
-    {
-      "id": 2,
-      "question": "How can you determine if something is NaN?",
-      "answer": "use isNaN() function."
-    },
-    {
-      "id": 3,
-      "question": "What's the best way to copy array myArr into newArr?",
-      "answer": "newArr = myArr.slice( ) or slice( 0 );"
-    },
-    {
-      "id": 4,
-      "question": "var a = [a,b,c,d,e]. What does b = a.splice() do?",
-      "answer": "a will become an empty array and b will become [a,b,c,d,e]"
-    },
-    {
-      "id": 5,
-      "question": "Turn 'Tom', 'Bill', 'Jerry' into the string 'Tom, Bill, Jerry'",
-      "answer": "Use array.join(', ')"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "question": "How can you include an external javascript file?",
+    "answer": "/script src='myfile.js'/"
+  },
+
+  {
+    "id": 2,
+    "question": "How can you determine if something is NaN?",
+    "answer": "use isNaN() function."
+  },
+
+  {
+    "id": 3,
+    "question": "What's the best way to copy array myArr into newArr?",
+    "answer": "newArr = myArr.slice( ) or slice( 0 );"
+  },
+
+  {
+    "id": 4,
+    "question": "var a = [a,b,c,d,e]. What does b = a.splice() do?",
+    "answer": "a will become an empty array and b will become [a,b,c,d,e]"
+  },
+  
+  {
+    "id": 5,
+    "question": "Turn 'Tom', 'Bill', 'Jerry' into the string 'Tom, Bill, Jerry'",
+    "answer": "Use array.join(', ')"
+  }
+]

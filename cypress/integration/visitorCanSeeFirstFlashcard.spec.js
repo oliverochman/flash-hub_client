@@ -1,4 +1,4 @@
-describe('Visitor can see and flip first flashcard on the homepage', () => {
+describe('Visitor can see first flashcard on the homepage', () => {
   beforeEach(() => {
     cy.server();
     cy.route({
@@ -10,18 +10,14 @@ describe('Visitor can see and flip first flashcard on the homepage', () => {
     cy.visit('http://localhost:3001');
   })
 
-  it('First flash card is displayed', async () => {
+  it('First flashcard is visible', async () => {
     cy.get('#flashcard_1');
   });
+
+  it('Correct content of first flashcard is visible', async () => {
+    cy.get('#flashcard_1').within(() => {
+      cy.get('#question').contains('How can you include an external javascript file?');
+      cy.get('#answer').contains("/script src='myfile.js'/");
+    });
+  });
 })
-
-//   let flashcard = [
-//     ['#1', '#question_1', '#answer_1']
-//   ]
-
-//   flashcard.forEach(flashcard => {
-//     cy.get(flashcard[0]).within(() => {
-//       cy.get(flashcard[1])
-//     })
-//   })
-// 

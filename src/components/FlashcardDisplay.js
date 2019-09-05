@@ -13,26 +13,31 @@ class FlashcardDisplay extends Component {
   }
 
   async getFlashcards() {
-    const response = await axios.get('/flashcard');
-    if (response.data.length > 0) {
-      this.setState({
-        flashcards: response.data
-      });
-    }
+  try {
+    const response = await axios.get('http://localhost:3000/api/flash_cards');
+    this.setState({
+      flashcards: response.data
+    });
+  } catch (error) {
+    this.setState({
+      flashcardsDisplay: false
+    });
   }
+}
   render() {
     const flashcardsDisplay = this.state.flashcards.length > 0 && this.state.flashcards.map(flashcard => {
       return <FlashcardTemplate key={flashcard.id} flashcard={flashcard} />
-    })
+    });
+
     return (
       <>
         <Container>
-          {flashcardsDisplay ?
-            flashcardsDisplay :
+          {flashcardsDisplay ? (
+            flashcardsDisplay ) : (
               <div id='flashcards-unavailable'>
                 <p>No flashcards available.</p>
               </div>
-            }
+            )}
           </Container>
         </>
       )
