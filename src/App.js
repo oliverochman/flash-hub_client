@@ -4,7 +4,9 @@ import Flashcard from './components/Flashcard';
 import axios from 'axios';
 
 class App extends Component {
-  state = { flashcards:[] }
+  state = { 
+    flashcards:[] 
+  }
 
   componentDidMount() {
     axios.get('http://localhost:3000/api/flashcards')

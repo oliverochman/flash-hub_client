@@ -16,10 +16,10 @@ describe('Visitor can see first flashcard on the homepage', () => {
     cy.get('.flashcard-back');
   });
 
-  it('Correct content of first flashcard is visible', () => {
-    cy.get('#flashcard_1').within(() => {
-      cy.get('#question').contains('How can you include an external javascript file?');
-      cy.get('#answer').contains("/script src='myfile.js'/");
+  it('Correct content of flashcards is visible', () => {
+    cy.get('#id_1').within(() => {
+      cy.get('#question_1').contains('How can you include an external javascript file?');
+      cy.get('#answer_1').contains("/script src='myfile.js'/");
     });
   });
 })
