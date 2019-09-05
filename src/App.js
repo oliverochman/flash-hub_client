@@ -6,7 +6,10 @@ import axios from 'axios';
 class App extends Component {
   state = { 
     flashcards:[] 
-  }
+    // id: '',
+    // question: '',
+    // answer: ''
+  };
 
   componentDidMount() {
     axios.get('http://localhost:3000/api/flashcards')
@@ -15,19 +18,21 @@ class App extends Component {
           flashcards: response.data
         })
       })
-  }
+  };
+  
+  //async
 
   render(){
     const flashcards = this.state.flashcards
     let flashcardDisplay
 
-    if (flashcards.length > 0) {
+    if (flashcards.length = 1 ) {
       flashcardDisplay = flashcards.map(flashcard => {
         return (
-            <Flashcard flashcard={flashcard} key={flashcard.id} />
+          <Flashcard flashcard={flashcard} key={flashcard.id} />
         )
       })
-    }
+    };
 
     return (
         <>
