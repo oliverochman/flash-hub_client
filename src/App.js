@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
 import Flashcard from './components/Flashcard';
 import axios from 'axios';
 
@@ -27,10 +26,8 @@ class App extends Component {
 
     return (
       <>
-        <Container>
-          <h1>FlashHub</h1>
-          {flashcardDisplay}
-        </Container>
+        <h1>FlashHub</h1>
+        {flashcardDisplay}
       </>
     )
   };
