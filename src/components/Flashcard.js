@@ -1,5 +1,5 @@
 import React from 'react';
-import './flashcard.css';
+import './styling/flashcard.css';
 
 const Flashcard = (props) => {
   let flashcard = props.flashcard;

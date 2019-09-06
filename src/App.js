@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
-import Flashcard from './components/Flashcard';
+import Flashcard from './styling/flashcard.css';
 import axios from 'axios';
 
 class App extends Component {
