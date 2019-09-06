@@ -12,7 +12,6 @@ const Flashcard = (props) => {
               {flashcard.question}
             </div>
         </div>
-
         <div className='flashcard-back' id={`answer_${flashcard.id}`}>
           <div className='back-text'>
             {flashcard.answer}
@@ -20,7 +19,7 @@ const Flashcard = (props) => {
         </div>
       </div>
     </div>
-)
+  )
 };
 
 export default Flashcard;
