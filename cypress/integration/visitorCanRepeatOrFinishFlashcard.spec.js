@@ -1,4 +1,4 @@
-describe('Visitor can choose to repeat or finish flashcard', () => {
+describe('A flashcard has tree buttons to repeat or finish a card', () => {
   beforeEach(() => {
     cy.server();
     cy.route({
@@ -17,9 +17,26 @@ describe('Visitor can choose to repeat or finish flashcard', () => {
       cy.get('#green').contains('I got this!');
     });
   });
-  
-  // it('', () =>{
-      
-  // });
-  
-})
+
+  describe("Flashcard status is updated when clicking on 'red' button", async () => {
+    beforeEach(() => {
+      cy.server();
+      cy.request({
+        method: 'PUT',
+        url: 'http://localhost:3000api/flashcards/"+"#{flashcard.id}',
+        response: 'fixture:flashcards.json',
+        status: 200,
+        headers: {
+          'id': 1
+        }
+      });
+      cy.visit('http://localhost:3001');
+    });
+    
+  it('updates flashcard status successfully by returning a new flashcard', () => {
+    cy.get('.button').find('#red').contains('Repeat, please').click(() => {
+      expect('.flashcard').to.not.equal('#id_1')
+    })
+    });
+  });
+});
