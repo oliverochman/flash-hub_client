@@ -10,14 +10,16 @@ describe('Visitor can choose to repeat or finish flashcard', () => {
     cy.visit('http://localhost:3001');
   });
 
-  it('has three status buttons', () => {
-    cy.get('.button').contains('#red')
-    cy.get('.button').contains('#yellow')
-    cy.get('.button').contains('#green')
+  it('has three status buttons', async () => {
+    cy.get('.button-group').within(() => {
+      cy.get('#red').contains('Repeat, please');
+      cy.get('#yellow').contains('Needs more practice');
+      cy.get('#green').contains('I got this!');
+    });
   });
   
-  it('', () =>{
+  // it('', () =>{
       
-  });
+  // });
   
 })

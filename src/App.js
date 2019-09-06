@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Flashcard from './components/Flashcard';
+import StatusButtons from './components/StatusButtons';
 import axios from 'axios';
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
       <>
         <h1>FlashHub</h1>
         {flashcardDisplay}
+        <StatusButtons />
       </>
     )
   };
