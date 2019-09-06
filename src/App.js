@@ -26,8 +26,8 @@ class App extends Component {
 
     return (
       <>
-          <h1>FlashHub</h1>
-          {flashcardDisplay}
+        <h1>FlashHub</h1>
+        {flashcardDisplay}
       </>
     )
   };
