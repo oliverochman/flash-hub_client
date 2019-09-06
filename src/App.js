@@ -21,12 +21,8 @@ class App extends Component {
     const flashcards = this.state.flashcards
     let flashcardDisplay
 
-    if ((flashcards.length = 1)) {
-      flashcardDisplay = flashcards.map(flashcard => {
-        return (
-          <Flashcard flashcard={flashcard} key={flashcard.id} />
-        )
-      })
+    if (flashcards.length >= 1) {
+      flashcardDisplay = <Flashcard flashcard={flashcards[0]} key={flashcards[0].id} />
     };
 
     return (
