@@ -2,34 +2,27 @@ import React, { Component } from 'react';
 import Flashcard from './components/Flashcard';
 import axios from 'axios';
 import './styling/status-buttons.css';
-import { uppdateFlashcardState } from './modules/updateFlashcardState'
 
 class App extends Component {
-  constructor() {
-    super()
-      this.state = {
-        flashcards: [],
-        status: {}
-      }
-    this.updateFlashcardState = this.updateFlashcardState.bind(this)
+  state = {
+    flashcards: [],
+    status: 'no_status',
   }
 
-  componentDidMount() {
-    axios.get('http://localhost:3000/api/flashcards')
-      .then(response => {
-        this.setState({
-          flashcards: response.data
-        })
-      })
+  async componentDidMount() {
+    let response = await axios.get('http://localhost:3000/api/flashcards')
+      this.setState({
+        flashcards: response.data
+    })
   };
 
-  updateFlashcardState() {
-    axios.put('http://localhost:3000/api/flashcards/"+"#{flashcard.id}')
-    .then(response => 
+  updateGreenStatus = () => {
+    axios.put('/api/flashcards/${this.props.id}')
+    .then(() => {
       this.setState({
-        status: ''
+        status: 'green'
       })
-    )
+    })
     console.log('update state')
   }
 
@@ -53,9 +46,9 @@ class App extends Component {
         {flashcardDisplay}
         
         <div className='button-group'>
-          <button className='update-button' id='red' onClick={this.updateFlashcardState}>Repeat, please</button>
-          <button className='update-button' id='yellow' onClick={this.updateFlashcardState}>Needs more practice</button>
-          <button className='update-button' id='green' onClick={this.updateFlashcardState}>I got this!</button>
+          <button className='update-button' id='red' onClick={this.updateRedStatus}>Repeat, please</button>
+          <button className='update-button' id='yellow' onClick={this.updateYellowStatus}>Needs more practice</button>
+          <button className='update-button' id='green' onClick={this.updateGreenStatus}>I got this!</button>
         </div>
       </>
     )
