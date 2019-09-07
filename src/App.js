@@ -16,7 +16,7 @@ class App extends Component {
     })
   };
 
-  updateGreenStatus = () => {
+  updateStatusHandler = () => {
     axios.put('/api/flashcards/${this.props.id}')
     .then(() => {
       this.setState({
@@ -45,11 +45,11 @@ class App extends Component {
         <h1>FlashHub</h1>
         {flashcardDisplay}
         
-        <div className='button-group'>
-          <button className='update-button' id='red' onClick={this.updateRedStatus}>Repeat, please</button>
-          <button className='update-button' id='yellow' onClick={this.updateYellowStatus}>Needs more practice</button>
-          <button className='update-button' id='green' onClick={this.updateGreenStatus.bind(this)}>I got this!</button>
-        </div>
+        <form className='button-group' onSubmit={(e) => this.updateStatusHandler(e)}>
+          <input type='radio' className='update-button' id='red'>Repeat, please</input>
+          <input type='radio' className='update-button' id='yellow'>Needs more practice</input>
+          <input type='radio' className='update-button' id='green'>I got this!</input>
+        </form>
       </>
     )
   };
