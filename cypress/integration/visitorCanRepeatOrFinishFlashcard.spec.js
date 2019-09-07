@@ -37,12 +37,11 @@ describe('A flashcard has tree buttons to repeat or finish a card', () => {
       cy.get('.update-button')
       cy.get('#green').click();
       cy.wait(3000)
+      cy.contains('Successfully added status')
     })
   });
   });
     // we might want to have a success message
-    //   cy.contains('Successfully added status')
-    // })
 
     // it('updates flashcard status successfully by returning a new flashcard', () => {
     //   cy.get('.button').find('#red').contains('Repeat, please').click(() => {
