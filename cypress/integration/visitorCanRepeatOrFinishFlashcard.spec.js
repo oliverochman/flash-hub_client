@@ -27,7 +27,7 @@ describe('A flashcard has tree buttons to repeat or finish a card', () => {
         response: 'fixture:successful_update_flashcard_status.json',
         status: 200,
         headers: {
-          'status': 'green'
+          'id': 1
         }
       });
       cy.visit('http://localhost:3001');
@@ -38,16 +38,17 @@ describe('A flashcard has tree buttons to repeat or finish a card', () => {
       cy.get('#green').click();
       cy.wait(3000)
     })
+  });
+  });
     // we might want to have a success message
-      cy.contains('Successfully added status')
-    })
+    //   cy.contains('Successfully added status')
+    // })
 
     // it('updates flashcard status successfully by returning a new flashcard', () => {
     //   cy.get('.button').find('#red').contains('Repeat, please').click(() => {
     //     expect('.flashcard').to.not.equal('#id_1')
     //   })
     // });
-  });
 
 
   // This commented out test actually give a false green
@@ -71,4 +72,4 @@ describe('A flashcard has tree buttons to repeat or finish a card', () => {
   //       })
   //     });
   //   });
-  // });
+  // })

@@ -48,7 +48,7 @@ class App extends Component {
         <div className='button-group'>
           <button className='update-button' id='red' onClick={this.updateRedStatus}>Repeat, please</button>
           <button className='update-button' id='yellow' onClick={this.updateYellowStatus}>Needs more practice</button>
-          <button className='update-button' id='green' onClick={this.updateGreenStatus}>I got this!</button>
+          <button className='update-button' id='green' onClick={this.updateGreenStatus.bind(this)}>I got this!</button>
         </div>
       </>
     )
