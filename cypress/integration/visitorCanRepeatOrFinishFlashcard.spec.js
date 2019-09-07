@@ -34,41 +34,10 @@ describe('A flashcard has tree buttons to repeat or finish a card', () => {
     });
 
     it('gets success message if status was updates', () => {
-      cy.get('.update-button')
       cy.get('#green').click();
       cy.wait(3000)
       cy.contains('Successfully added status')
     })
   });
-  });
-    // we might want to have a success message
-
-    // it('updates flashcard status successfully by returning a new flashcard', () => {
-    //   cy.get('.button').find('#red').contains('Repeat, please').click(() => {
-    //     expect('.flashcard').to.not.equal('#id_1')
-    //   })
-    // });
-
-
-  // This commented out test actually give a false green
-
-  // describe("Flashcard status is updated when clicking on 'red' button", async () => {
-  //   it('updates flashcard status successfully by returning a new flashcard', () => {
-  //     beforeEach(() => {
-  //       cy.server();
-  //       cy.request({
-  //         method: 'PUT',
-  //         url: 'http://localhost:3000api/flashcards/"+"#{flashcard.id}',
-  //         response: 'fixture:flashcards.json',
-  //         status: 200,
-  //         headers: {
-  //           'id': 1
-  //         }
-  //       });
-  //       cy.visit('http://localhost:3001');
-  //       cy.get('.button').find('#red').contains('Repeat, please').click(() => {
-  //         expect('.flashcard').to.not.equal('#id_1')
-  //       })
-  //     });
-  //   });
-  // })
+});
+  

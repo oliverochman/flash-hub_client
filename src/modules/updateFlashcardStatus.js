@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const updateFlashcardStatus = async (status) => {
+const updateFlashcardStatus = async (id, status) => {
   try {
-    let response = await axios.put('http://localhost:3000/api/flashcards/1' , {
+    let response = await axios.put(`http://localhost:3000/api/flashcards/${id}` , {
         statusUpdated: true,
       });
     return response;
