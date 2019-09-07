@@ -5,35 +5,36 @@ import '../styling/status-buttons.css';
 class StatusButtons extends Component {
   constructor() {
     super()
-    this.state = {
-      flashcards: [],
-      currentFlashcard: {
-      id: ''
-      }
-    }
-    // this.handleClick = this.handleClick.bind(this)
+    this.updateFlashcardState = this.updateFlashcardState.bind(this)
   }
 
-    // handleClick() {
+    // updateFlashcardState() {
     //  axios.put('"http://localhost:3000/api/flashcards+"#{flashcard.id}')
     //  .then(response => this.setState({currentFlashcard: response.data.id}))
     //  .catch(err => console.log(err))
     // } 
     
-    
-    render() {
-      return (
-        <div className='button-group'>
-          <div className='button' id='red' onClick={e => this.handleClick}>Repeat, please</div>
-          <div className='button' id='yellow'>Needs more practice</div>
-          <div className='button' id='green'>I got this!</div>
-        </div>
-      )
-    }
+  updateFlashcardState() {
+    console.log('update state')
+  }
   
+  render() {
+    let updateButtons;
+
+    if (this.props.statusUpdated === false) {
+      //show first flashcard
+    } else if (this.props.statusUpdated === true) {
+      //show next flashcard
+    }
+
+    return (
+      <div className='button-group'>
+        <button className='button' id='red' onClick={this.updateFlashcardState}>Repeat, please</button>
+        <button className='button' id='yellow' onClick={this.updateFlashcardState}>Needs more practice</button>
+        <button className='button' id='green' onClick={this.updateFlashcardState}>I got this!</button>
+      </div>
+    )
+  }
 };
 
 export default StatusButtons;
-
-
-// onClick={e => this.setState}
