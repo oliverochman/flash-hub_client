@@ -18,26 +18,35 @@ describe('A flashcard has tree buttons to repeat or finish a card', () => {
     });
   });
 
-  describe("Flashcard status is updated when clicking on 'red' button", async () => {
+  describe("Flashcard status is updated to green when clicking on 'green' button", async () => {
     beforeEach(() => {
       cy.server();
-      cy.request({
+      cy.route({
         method: 'PUT',
-        url: 'http://localhost:3000api/flashcards',
-        response: 'fixture:flashcards.json',
+        url: 'http://localhost:3000/api/flashcards/1',
+        response: 'fixture:successful_update_flashcard_status.json',
         status: 200,
         headers: {
-          'id': 1
+          'status': 'green'
         }
       });
       cy.visit('http://localhost:3001');
     });
 
-    it('updates flashcard status successfully by returning a new flashcard', () => {
-      cy.get('.button').find('#red').contains('Repeat, please').click(() => {
-        expect('.flashcard').to.not.equal('#id_1')
-      })
-    });
+    it('gets success message if status was updates', () => {
+      cy.get('.update-button')
+      cy.get('#green').click();
+      cy.wait(3000)
+    })
+    // we might want to have a success message
+      cy.contains('Successfully added status')
+    })
+
+    // it('updates flashcard status successfully by returning a new flashcard', () => {
+    //   cy.get('.button').find('#red').contains('Repeat, please').click(() => {
+    //     expect('.flashcard').to.not.equal('#id_1')
+    //   })
+    // });
   });
 
 
@@ -63,4 +72,3 @@ describe('A flashcard has tree buttons to repeat or finish a card', () => {
   //     });
   //   });
   // });
-})
