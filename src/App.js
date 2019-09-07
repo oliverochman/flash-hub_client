@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import Flashcard from './components/Flashcard';
-import StatusButtons from './components/StatusButtons';
 import axios from 'axios';
+import './styling/status-buttons.css';
+import { uppdateFlashcardState } from './modules/updateFlashcardState'
 
 class App extends Component {
-  state = {
-    flashcards: [],
-  };
+  constructor() {
+    super()
+      this.state = {
+        flashcards: [],
+        status: {}
+      }
+    this.updateFlashcardState = this.updateFlashcardState.bind(this)
+  }
 
   componentDidMount() {
-    // I think the requested url for each current flashcard then should be: 'http://localhost:3000api/flashcards/"+"#{flashcard.id}'
     axios.get('http://localhost:3000/api/flashcards')
       .then(response => {
         this.setState({
@@ -18,26 +23,40 @@ class App extends Component {
       })
   };
 
+  updateFlashcardState() {
+    axios.put('http://localhost:3000/api/flashcards/"+"#{flashcard.id}')
+    .then(response => 
+      this.setState({
+        status: ''
+      })
+    )
+    console.log('update state')
+  }
+
   render() {
     const flashcards = this.state.flashcards
     let flashcardDisplay 
 
-    // This is the old function outcommented:
-    // if (flashcards.length >= 1) {
-    //   flashcardDisplay = <Flashcard flashcard={flashcards[0]} key={flashcards[0].id} />
-    // };
-
-    for (var i = 0; i < flashcards.length; i++) {
-      if (flashcards.length >= 0) {
-        flashcardDisplay = <Flashcard flashcard={flashcards[i]} key={flashcards[i].id} />
-      };
+    if (flashcards.length >= 1) {
+      flashcardDisplay = <Flashcard flashcard={flashcards[0]} key={flashcards[0].id} />
     };
+
+    // for (var i = 0; i < flashcards.length; i++) {
+    //   if (flashcards.length >= 0) {
+    //     flashcardDisplay = <Flashcard flashcard={flashcards[i]} key={flashcards[i].id} />
+    //   };
+    // };
 
     return (
       <>
         <h1>FlashHub</h1>
         {flashcardDisplay}
-        <StatusButtons />
+        
+        <div className='button-group'>
+          <button className='update-button' id='red' onClick={this.updateFlashcardState}>Repeat, please</button>
+          <button className='update-button' id='yellow' onClick={this.updateFlashcardState}>Needs more practice</button>
+          <button className='update-button' id='green' onClick={this.updateFlashcardState}>I got this!</button>
+        </div>
       </>
     )
   };
