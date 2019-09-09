@@ -3,7 +3,7 @@ describe('Visitor can see first flashcard on the homepage', () => {
     cy.server();
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3000/api/flashcards',
+      url: 'http://localhost:3000/api/decks',
       response: 'fixture:flashcards.json',
       status: 200
     });
