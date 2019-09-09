@@ -10,34 +10,34 @@ export class PresentFlashcard extends Component {
   };
 
   async componentDidMount() {
-    const response = await axios.get("http://localhost:3000/api/flashcards");
+    const response = await axios.get("http://localhost:3000/api/decks");
     this.setState({
-      flashcards: response.data
+      flashcards: response.data.decks[0].flashcards
     });
   };
 
   updateStatus = (event) => {
-    let nextFlashcard;
     let status = event.target.id
     let flashcardId = this.state.flashcards[this.state.activeFlashcard].id
     updateFlashcardStatus(status, flashcardId).then(() => {
       if (this.state.activeFlashcard + 1 == 10) {
-        nextFlashcard = 0
+        this.setState({
+          renderDeckOption: true
+        })
       } else {
-        nextFlashcard = this.state.activeFlashcard + 1
-      }
-
-      this.setState({
-        activeFlashcard: nextFlashcard
-      })
+        this.setState({
+          activeFlashcard: this.state.activeFlashcard + 1
+        })
+      }  
     })
   };
 
   render() {
     const flashcards = this.state.flashcards;
+    let chooseDeckOption;
     let flashcardDisplay;
 
-    if (flashcards.length >= 1) {
+    if (flashcards.length >= 1 && this.state.renderDeckOption !== true) {
       flashcardDisplay = (
         <Flashcard 
           flashcard={flashcards[this.state.activeFlashcard]} 
@@ -46,9 +46,19 @@ export class PresentFlashcard extends Component {
         />
       );
     }
+
+    if (this.state.renderDeckOption === true) {
+      chooseDeckOption = (
+        <>
+          <button id="repeat-deck">Repeat</button>
+          <button id="get-new-deck">New Deck</button>
+        </>
+      )
+    }
     return (
       <div>
         {flashcardDisplay}
+        {chooseDeckOption}
       </div>
     )
   }
