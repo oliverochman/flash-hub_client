@@ -6,7 +6,6 @@ const updateFlashcardStatus = async (status, id) => {
     {
       status: status
     });
-    debugger;
     return response;
   } catch (error) {
     return error.response;
