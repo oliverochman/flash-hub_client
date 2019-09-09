@@ -1,5 +1,4 @@
 import React from 'react';
-// import '../styling/flashcard.css';
 import "../styling/status-buttons.css";
 import { Reveal, Card, Button } from 'semantic-ui-react';
 
