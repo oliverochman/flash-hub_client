@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styling/status-buttons.css";
+import "../styling/customize.css";
 import { Reveal, Card, Button, Grid } from 'semantic-ui-react';
 
 const Flashcard = (props) => {
@@ -24,9 +24,9 @@ const Flashcard = (props) => {
               </Card>
             </Reveal.Content>
           </Reveal>
-          </Grid.Column>
+        </Grid.Column>
           
-          <Grid.Column width={11}>
+        <Grid.Column width={11}>
           <Button className='update-button' onClick={props.updateStatus} id='red' style={{ width: 191, height: 50 }}>
             Repeat, please
           </Button>
