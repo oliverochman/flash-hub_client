@@ -1,30 +1,30 @@
 {
   "decks": [
     {
-      "category": "Javascript",
+      "category": "Ruby",
       "flashcards": [
         {
           "id": 1,
-          "question": "How can you include an external javascript file?",
-          "answer": "/script src='myfile.js'/"
+          "question": "Quotes used with string interpolation",
+          "answer": "# double quote"
         },
       
         {
           "id": 2,
-          "question": "How can you determine if something is NaN?",
-          "answer": "use isNaN() function."
+          "question": "Ternary syntax in Ruby",
+          "answer": "expression ? true_value : false_value"
         },
       
         {
           "id": 3,
-          "question": "What's the best way to copy array myArr into newArr?",
-          "answer": "newArr = myArr.slice( ) or slice( 0 );"
+          "question": "Nameless methods that are passed to methods as a parameter",
+          "answer": "Block"
         },
       
         {
           "id": 4,
-          "question": "var a = [a,b,c,d,e]. What does b = a.splice() do?",
-          "answer": "a will become an empty array and b will become [a,b,c,d,e]"
+          "question": "Object that is a block of code that can be bound to a set of local variables",
+          "answer": "Proc"
         },
       
         {
@@ -66,9 +66,9 @@
     }  
   ],
   "meta": {
-    "currentPage": 1,
-    "nextPage": 2,
-    "prevPage": "nil", 
+    "currentPage": 2,
+    "nextPage": "nil",
+    "prevPage": 1, 
     "totalPages": 2, 
     "totalCount": 2
   }
