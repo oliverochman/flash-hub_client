@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lexend+Giga&display=swap');
+
 /* Status buttons */
 
 #red {
@@ -13,4 +15,10 @@
 #green {
   background-color: #D1E687;
   color: rgb(125, 150, 37);
+}
+
+#header{
+  margin-top: 2px;
+  margin-left: 2rem;
+  padding-top: 1rem;
 }
