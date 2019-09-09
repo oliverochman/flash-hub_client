@@ -24,13 +24,13 @@ const Flashcard = (props) => {
         </Reveal.Content>
       </Reveal>
 
-      <Button className='update-button' onClick={props.updateStatus} id='red'>
+      <Button className='update-button' onClick={props.updateStatus} id='red' style={{ width: 191, height: 50 }}>
         Repeat, please
       </Button>
-      <Button className='update-button' onClick={props.updateStatus} id='yellow'>
+      <Button className='update-button' onClick={props.updateStatus} id='yellow' style={{ width: 191, height: 50 }}>
         Needs more practice
       </Button>
-      <Button className='update-button' onClick={props.updateStatus} id='green'>
+      <Button className='update-button' onClick={props.updateStatus} id='green' style={{ width: 191, height: 50 }}>
         I got this
       </Button>
     </>
