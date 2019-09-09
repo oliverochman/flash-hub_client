@@ -1,10 +1,11 @@
 import React from "react";
-import PresentFlashcard from "./components/PresentFlashcard"
+import PresentFlashcard from "./components/PresentFlashcard";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <>
-      <h1>FlashHub</h1>
+      <Navbar />
       <PresentFlashcard />
     </>
   );
