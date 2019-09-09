@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import axios from "axios";
 import { updateFlashcardStatus } from "../modules/updateFlashcardStatus";
 import Flashcard from "./Flashcard";
+import { Container, Button } from 'semantic-ui-react';
 
 export class PresentFlashcard extends Component {
   state = {
@@ -78,16 +79,21 @@ export class PresentFlashcard extends Component {
     if (this.state.renderDeckOption === true) {
       chooseDeckOption = (
         <>
-          <button onClick={() => this.repeatCurrentDeck()} id="repeat-deck">Repeat</button>
-          <button onClick={() => this.getNewDeck()} id="get-new-deck">New Deck</button>
+          <Button onClick={() => this.repeatCurrentDeck()} id="repeat-deck">
+            Repeat
+            </Button>
+          <Button onClick={() => this.getNewDeck()} id="get-new-deck">
+            New Deck
+          </Button>
         </>
       )
     }
+    
     return (
-      <div>
+      <Container>
         {flashcardDisplay}
         {chooseDeckOption}
-      </div>
+      </Container>
     )
   }
 }

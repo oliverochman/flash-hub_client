@@ -1,0 +1,16 @@
+/* Status buttons */
+
+#red {
+  background-color: #FCA17E;
+  color: rgb(131, 75, 57);
+}
+
+#yellow{
+  background-color: #FFF389;
+  color: rgb(150, 136, 16);
+}
+
+#green {
+  background-color: #D1E687;
+  color: rgb(125, 150, 37);
+}
