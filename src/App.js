@@ -7,58 +7,46 @@ import { updateFlashcardStatus } from "./modules/updateFlashcardStatus";
 class App extends Component {
   state = {
     flashcards: [],
-    currentFlashcard: {},
-    statusUpdated: false
+    currentFlashcard: {}
   };
 
   async componentDidMount() {
     const response = await axios.get("http://localhost:3000/api/flashcards");
     this.setState({
-      flashcards: response.data
+      flashcards: response.data,
+      activeFlashcard: 0
     });
   }
 
-  updateStatus = async (event) => {
-    debugger
+  updateStatus = (event) => {
     let status = event.target.id
-    let response = await updateFlashcardStatus(status)
-    // .then(() => {
-    //   this.setState({
-    //     statusUpdated: true,
-    //     status: response.data.status
-    //   });
-    //   console.log("update green state");
-    // });
+    let flashCardId = this.state.flashcards[this.state.activeFlashcard].id
+    updateFlashcardStatus(status, flashCardId).then(
+      this.setState({
+        activeFlashcard: this.state.activeFlashcard + 1
+      })
+    )
   }
 
   render() {
     const flashcards = this.state.flashcards;
     let flashcardDisplay;
-    let statusMessage;
 
     if (flashcards.length >= 1) {
       flashcardDisplay = (
-        <Flashcard flashcard={flashcards[0]} key={flashcards[0].id} />
+        <Flashcard flashcard={flashcards[this.state.activeFlashcard]} key={flashcards[this.state.activeFlashcard].id} />
       );
     }
 
-    if (this.props.statusUpdated === false) {
-      statusMessage = <p>Successfully added status</p>;
-    } else {
-      statusMessage = <p>No status</p>;
-    }
     return (
       <>
         <h1>FlashHub</h1>
         {flashcardDisplay}
-        {statusMessage}
 
         <div className='button-group'>
-          <button className='update-button' id='red'>Repeat, please</button>
-          <button className='update-button' id='yellow'>Needs more practice</button>
-          {/* <button className='update-button' onClick={(e) => this.updateStatus.bind(this, e)} id='green'>I got this!</button> */}
-          <button className='update-button' onClick={this.updateStatus.bind(this)} id='green'>I got this!</button>
-
+          <button className='update-button' onClick={(e) => this.updateStatus(e)} id='red'>Repeat, please</button>
+          <button className='update-button' onClick={(e) => this.updateStatus(e)} id='yellow'>Needs more practice</button>
+          <button className='update-button' onClick={(e) => this.updateStatus(e)} id='green'>I got this!</button>
         </div>
 
 
