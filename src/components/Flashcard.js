@@ -2,7 +2,6 @@ import React from 'react';
 import '../styling/flashcard.css';
 import "../styling/status-buttons.css";
 
-
 const Flashcard = (props) => {
   let flashcard = props.flashcard;
   return (
