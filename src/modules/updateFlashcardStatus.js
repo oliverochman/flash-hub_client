@@ -3,7 +3,7 @@ import axios from 'axios';
 const updateFlashcardStatus = async (id, status) => {
   try {
     let response = await axios.put(`http://localhost:3000/api/flashcards/${id}` , {
-        statusUpdated: true,
+        status: status
       });
     return response;
   } catch (error) {
@@ -12,4 +12,3 @@ const updateFlashcardStatus = async (id, status) => {
 };
 
 export { updateFlashcardStatus }
-
