@@ -9,7 +9,7 @@ describe('A flashcard has tree buttons to repeat or finish a card', () => {
     });
     cy.route({
       method: 'PUT',
-      url: 'http://localhost:3000/api/flashcards/1',
+      url: 'http://localhost:3000/api/flashcards/**',
       response: 'fixture:successful_update_flashcard_status.json',
       status: 200,
       headers: {
@@ -33,7 +33,8 @@ describe('A flashcard has tree buttons to repeat or finish a card', () => {
     it('gets success message if status was updated', () => {
       cy.get('#green').click();
       cy.wait(3000)
-      cy.contains('Successfully added status')
+      cy.get('#question_2').contains('How can you determine if something is NaN?');
+      cy.get('#answer_2').contains('use isNaN() function.');
     })
   });
 });

@@ -6,7 +6,8 @@ import { updateFlashcardStatus } from "./modules/updateFlashcardStatus";
 
 class App extends Component {
   state = {
-    flashcards: []
+    flashcards: [],
+    currentFlashcard: {}
   };
 
   async componentDidMount() {
@@ -38,11 +39,11 @@ class App extends Component {
       );
     }
 
-    if (this.props.statusUpdated === false) {
-      statusMessage = <p>Successfully added status</p>;
-    } else {
-      statusMessage = <p>No status</p>;
-    }
+    // if (this.props.statusUpdated === false) {
+    //   statusMessage = <p>Successfully added status</p>;
+    // } else {
+    //   statusMessage = <p>No status</p>;
+    // }
     return (
       <>
         <h1>FlashHub</h1>
