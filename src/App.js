@@ -17,7 +17,7 @@ class App extends Component {
     });
   };
 
-  updateStatus = async (event) => {
+  updateStatus = (event) => {
     let status = event.target.id
     let flashcardId = this.state.flashcards[this.state.activeFlashcard].id
     updateFlashcardStatus(status, flashcardId).then(
@@ -50,14 +50,10 @@ class App extends Component {
         {statusMessage}
 
         <div className='button-group'>
-          <button className='update-button' id='red'>Repeat, please</button>
-          <button className='update-button' id='yellow'>Needs more practice</button>
-          {/* <button className='update-button' onClick={(e) => this.updateStatus.bind(this, e)} id='green'>I got this!</button> */}
-          <button className='update-button' onClick={this.updateStatus.bind(this)} id='green'>I got this!</button>
-
+          <button className='update-button' onClick={(e) => this.updateStatus(e)} id='red'>Repeat, please</button>
+          <button className='update-button' onClick={(e) => this.updateStatus(e)} id='yellow'>Needs more practice</button>
+          <button className='update-button' onClick={(e) => this.updateStatus(e)} id='green'>I got this!</button>
         </div>
-
-
       </>
     );
   }
