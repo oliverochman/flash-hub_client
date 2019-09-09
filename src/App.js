@@ -6,30 +6,26 @@ import { updateFlashcardStatus } from "./modules/updateFlashcardStatus";
 
 class App extends Component {
   state = {
-    flashcards: [],
-    currentFlashcard: {},
-    statusUpdated: false
+    flashcards: []
   };
 
   async componentDidMount() {
     const response = await axios.get("http://localhost:3000/api/flashcards");
     this.setState({
-      flashcards: response.data
+      flashcards: response.data,
+      activeFlashcard: 0
     });
-  }
+  };
 
   updateStatus = async (event) => {
-    debugger
     let status = event.target.id
-    let response = await updateFlashcardStatus(status)
-    // .then(() => {
-    //   this.setState({
-    //     statusUpdated: true,
-    //     status: response.data.status
-    //   });
-    //   console.log("update green state");
-    // });
-  }
+    let flashcardId = this.state.flashcards[this.state.activeFlashcard].id
+    updateFlashcardStatus(status, flashcardId).then(
+      this.setState({
+        activeFlashcard: this.activeFlashcard + 1
+      })
+    )
+  };
 
   render() {
     const flashcards = this.state.flashcards;
@@ -38,7 +34,7 @@ class App extends Component {
 
     if (flashcards.length >= 1) {
       flashcardDisplay = (
-        <Flashcard flashcard={flashcards[0]} key={flashcards[0].id} />
+        <Flashcard flashcard={flashcards[this.state.activeFlashcard]} key={flashcards[this.state.activeFlashcard].id} />
       );
     }
 
