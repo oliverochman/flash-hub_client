@@ -16,4 +16,10 @@ describe('Visitor can see first flashcard on the homepage', () => {
       cy.get('#answer_1').contains("/script src='myfile.js'/");
     });
   });
+
+  it('Displayes correct category', () => {
+    cy.get('#id_1').within(() => {
+      cy.get('#category').contains('JavaScript');
+    });
+  });
 });
