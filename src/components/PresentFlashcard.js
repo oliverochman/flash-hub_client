@@ -8,14 +8,16 @@ export class PresentFlashcard extends Component {
   state = {
     flashcards: [],
     activeFlashcard: 0,
-    nextDeckPage: "nil"
+    nextDeckPage: "nil",
+    deckCategory: ''
   };
 
   async componentDidMount() {
     const response = await axios.get("http://localhost:3000/api/decks");
     this.setState({
       flashcards: response.data.decks[0].flashcards,
-      nextDeckPage: response.data.meta.nextPage
+      nextDeckPage: response.data.meta.nextPage,
+      deckCategory: response.data.decks[0].category
     });
   };
 
@@ -34,7 +36,8 @@ export class PresentFlashcard extends Component {
       flashcards: response.data.decks[0].flashcards,
       activeFlashcard: 0,
       nextDeckPage: response.data.meta.nextPage,
-      renderDeckOption: false
+      deckCategory: response.data.decks[0].category,
+      renderDeckOption: false,
     })
   }
 
@@ -72,6 +75,7 @@ export class PresentFlashcard extends Component {
           flashcard={flashcards[this.state.activeFlashcard]} 
           key={flashcards[this.state.activeFlashcard].id} 
           updateStatus={this.updateStatus}
+          currentDeckCategory={this.state.deckCategory}
         />
       );
     }

@@ -4,6 +4,8 @@ import { Reveal, Card, Button, Grid, Label } from 'semantic-ui-react';
 
 const Flashcard = (props) => {
   let flashcard = props.flashcard;
+  let currentDeckCategory = props.currentDeckCategory;
+  
   return (
     <>
       <Grid centered columns={2}>
@@ -12,8 +14,8 @@ const Flashcard = (props) => {
             <Reveal.Content visible>
               <Card style={{ width: 580, height: 400 }}>
                 <Grid.Column width={2}>
-                  <Label ribbon as='a' color='red' id='category'>
-                    JavaScript
+                  <Label ribbon as='a' color='olive' id={`${currentDeckCategory}`} >
+                    {currentDeckCategory}
                   </Label>
                 </Grid.Column>
                 <Card.Header as="h1" className="ui orange header" id={`question_${flashcard.id}`} style={{ marginTop: '5em' }} textAlign='center'>
@@ -24,8 +26,8 @@ const Flashcard = (props) => {
             <Reveal.Content>
               <Card style={{ width: 580, height: 400 }}>
                 <Grid.Column width={2}>
-                  <Label ribbon as='a' color='red' id='category'>
-                    JavaScript
+                  <Label ribbon as='a' color='olive' id={`${currentDeckCategory}`}>
+                    {currentDeckCategory}
                   </Label>
                 </Grid.Column>
                 <Card.Header as="h3" className="ui black header" id={`answer_${flashcard.id}`} style={{ marginTop: '9em', marginLeft: '1em', marginRight: '1em' }} textAlign='center'>
