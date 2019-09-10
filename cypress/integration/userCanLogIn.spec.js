@@ -2,6 +2,12 @@ describe('User can login', () => {
   beforeEach(() => {
     cy.server();
     cy.route({
+      method: 'GET',
+      url: 'http://localhost:3000/api/decks',
+      response: 'fixture:flashcards.json',
+      status: 200
+    });
+    cy.route({
       method: "POST",
       url: "http://localhost:3000/api/auth/sign_in",
       response: "fixture:user-login.json"

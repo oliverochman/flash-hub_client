@@ -17,6 +17,7 @@ class Navbar extends Component {
           </Header>
         <Menu.Menu position='right'>
           <Menu.Item style={{ color: 'orange' }}
+            id='login-button'
             name='login'
             active={activeItem === 'login'}
             onClick={this.handleItemClick}
