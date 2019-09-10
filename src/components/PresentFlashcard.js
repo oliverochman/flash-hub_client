@@ -25,7 +25,7 @@ export class PresentFlashcard extends Component {
 
   getNewDeck = async () => {
     let page;
-    let response; 
+    let response;
 
     if (this.state.nextDeckPage === null) {
       page = 1
@@ -33,10 +33,10 @@ export class PresentFlashcard extends Component {
       page = this.state.nextDeckPage
     }
 
-    if(this.state.onlySpecificTypeOfDeck === true) {
-    response = await axios.get(`http://localhost:3000/api/decks/?page=${page}&category=${this.state.deckCategory}`);
+    if (this.state.onlySpecificTypeOfDeck === true) {
+      response = await axios.get(`http://localhost:3000/api/decks/?page=${page}&category=${this.state.deckCategory}`);
     } else {
-    response = await axios.get(`http://localhost:3000/api/decks/?page=${page}`);
+      response = await axios.get(`http://localhost:3000/api/decks/?page=${page}`);
     }
 
     this.setState({
@@ -57,7 +57,7 @@ export class PresentFlashcard extends Component {
 
   getCategoryDeck = async (event) => {
     let category = event.target.id
-    
+
     const response = await axios.get(`http://localhost:3000/api/decks/?category=${category}`);
 
     this.setState({
@@ -93,9 +93,9 @@ export class PresentFlashcard extends Component {
 
     if (flashcards.length >= 1 && this.state.renderDeckOption !== true) {
       flashcardDisplay = (
-        <Flashcard 
-          flashcard={flashcards[this.state.activeFlashcard]} 
-          key={flashcards[this.state.activeFlashcard].id} 
+        <Flashcard
+          flashcard={flashcards[this.state.activeFlashcard]}
+          key={flashcards[this.state.activeFlashcard].id}
           updateStatus={this.updateStatus}
           currentDeckCategory={this.state.deckCategory}
         />
@@ -105,16 +105,23 @@ export class PresentFlashcard extends Component {
     if (this.state.renderDeckOption === true) {
       chooseDeckOption = (
         <>
-          <Button onClick={() => this.repeatCurrentDeck()} id="repeat-deck">
-            Repeat
+          <Container>
+            <Button onClick={() => this.repeatCurrentDeck()}
+              id="repeat-deck"
+              basic color='red'
+            >
+              Repeat
           </Button>
-          <Button onClick={() => this.getNewDeck()} id="get-new-deck">
-            New Deck
+            <Button onClick={() => this.getNewDeck()}
+              id="get-new-deck"
+              basic color='green'>
+              New Deck
           </Button>
+          </Container>
         </>
       )
     };
-    
+
     return (
       <>
         <Container>

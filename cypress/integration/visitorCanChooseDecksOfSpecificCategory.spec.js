@@ -19,7 +19,7 @@ describe('Visitor can choose decks of a specific category', () => {
   });
 
   // it('Displays option buttons for different categories', () => {
-  //   cy.get('#category').within(
+  //   cy.get('#ruby').click(
   //     cy.get('#ruby').click(
   //   )
   // });
