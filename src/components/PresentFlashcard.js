@@ -8,8 +8,9 @@ export class PresentFlashcard extends Component {
   state = {
     flashcards: [],
     activeFlashcard: 0,
-    nextDeckPage: "nil",
-    deckCategory: ''
+    nextDeckPage: null,
+    deckCategory: '',
+    onlySpecificTypeOfDeck: false
   };
 
   async componentDidMount() {
@@ -23,14 +24,21 @@ export class PresentFlashcard extends Component {
 
   getNewDeck = async () => {
     let page;
-    
-    if (this.state.nextDeckPage === "nil") {
+    let response;
+
+    if (this.state.nextDeckPage === null) {
       page = 1
     } else {
       page = this.state.nextDeckPage
     }
 
-    const response = await axios.get(`http://localhost:3000/api/decks/?page=${page}`);
+    if(this.state.onlySpecificTypeOfDeck === true) {
+      debugger;
+      response = await axios.get(`http://localhost:3000/api/decks/?page=${page}&category=${this.state.deckCategory}`);
+
+    } else {
+      response = await axios.get(`http://localhost:3000/api/decks/?page=${page}`);
+    }
 
     this.setState({
       flashcards: response.data.decks[0].flashcards,
@@ -45,6 +53,22 @@ export class PresentFlashcard extends Component {
     this.setState({
       activeFlashcard: 0,
       renderDeckOption: false
+    })
+  }
+
+  getCategoryDeck = async (event) => {
+    debugger;
+    let category = event.target.id
+    
+    const response = await axios.get(`http://localhost:3000/api/decks/?category=${category}`);
+
+    this.setState({
+      flashcards: response.data.decks[0].flashcards,
+      activeFlashcard: 0,
+      nextDeckPage: response.data.meta.nextPage,
+      deckCategory: response.data.decks[0].category,
+      renderDeckOption: false,
+      onlySpecificTypeOfDeck: true
     })
   }
 
@@ -97,6 +121,12 @@ export class PresentFlashcard extends Component {
       <Container>
         {flashcardDisplay}
         {chooseDeckOption}
+
+        <div id="categories">
+          <button onClick={(e) => this.getCategoryDeck(e)} id="ruby">Ruby</button> 
+          <button onClick={(e) => this.getCategoryDeck(e)} id="javascript">Javascript</button> 
+          <button onClick={(e) => this.getCategoryDeck(e)} id="tips">Tips & Tricks</button> 
+        </div>
       </Container>
     )
   }
