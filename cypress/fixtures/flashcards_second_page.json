@@ -67,7 +67,7 @@
   ],
   "meta": {
     "currentPage": 2,
-    "nextPage": "nil",
+    "nextPage": null,
     "prevPage": 1, 
     "totalPages": 2, 
     "totalCount": 2

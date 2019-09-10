@@ -8,42 +8,66 @@ export class PresentFlashcard extends Component {
   state = {
     flashcards: [],
     activeFlashcard: 0,
-    nextDeckPage: "nil"
+    nextDeckPage: null,
+    deckCategory: '',
+    onlySpecificTypeOfDeck: false
   };
 
   async componentDidMount() {
     const response = await axios.get("http://localhost:3000/api/decks");
     this.setState({
       flashcards: response.data.decks[0].flashcards,
-      nextDeckPage: response.data.meta.nextPage
+      nextDeckPage: response.data.meta.nextPage,
+      deckCategory: response.data.decks[0].category
     });
   };
 
   getNewDeck = async () => {
     let page;
-    
-    if (this.state.nextDeckPage === "nil") {
+    let response; 
+
+    if (this.state.nextDeckPage === null) {
       page = 1
     } else {
       page = this.state.nextDeckPage
     }
 
-    const response = await axios.get(`http://localhost:3000/api/decks/?page=${page}`);
+    if(this.state.onlySpecificTypeOfDeck === true) {
+    response = await axios.get(`http://localhost:3000/api/decks/?page=${page}&category=${this.state.deckCategory}`);
+    } else {
+    response = await axios.get(`http://localhost:3000/api/decks/?page=${page}`);
+    }
 
     this.setState({
       flashcards: response.data.decks[0].flashcards,
       activeFlashcard: 0,
       nextDeckPage: response.data.meta.nextPage,
-      renderDeckOption: false
-    })
-  }
+      deckCategory: response.data.decks[0].category,
+      renderDeckOption: false,
+    });
+  };
 
   repeatCurrentDeck = () => {
     this.setState({
       activeFlashcard: 0,
       renderDeckOption: false
-    })
-  }
+    });
+  };
+
+  getCategoryDeck = async (event) => {
+    let category = event.target.id
+    
+    const response = await axios.get(`http://localhost:3000/api/decks/?category=${category}`);
+
+    this.setState({
+      flashcards: response.data.decks[0].flashcards,
+      activeFlashcard: 0,
+      nextDeckPage: response.data.meta.nextPage,
+      deckCategory: response.data.decks[0].category,
+      renderDeckOption: false,
+      onlySpecificTypeOfDeck: true
+    });
+  };
 
   updateStatus = (event) => {
     let status = event.target.id
@@ -57,7 +81,7 @@ export class PresentFlashcard extends Component {
         this.setState({
           activeFlashcard: this.state.activeFlashcard + 1
         })
-      }  
+      }
     })
   };
 
@@ -72,28 +96,43 @@ export class PresentFlashcard extends Component {
           flashcard={flashcards[this.state.activeFlashcard]} 
           key={flashcards[this.state.activeFlashcard].id} 
           updateStatus={this.updateStatus}
+          currentDeckCategory={this.state.deckCategory}
         />
       );
-    }
+    };
 
     if (this.state.renderDeckOption === true) {
       chooseDeckOption = (
         <>
           <Button onClick={() => this.repeatCurrentDeck()} id="repeat-deck">
             Repeat
-            </Button>
+          </Button>
           <Button onClick={() => this.getNewDeck()} id="get-new-deck">
             New Deck
           </Button>
         </>
       )
-    }
+    };
     
     return (
-      <Container>
-        {flashcardDisplay}
-        {chooseDeckOption}
-      </Container>
+      <>
+        <Container>
+          {flashcardDisplay}
+          {chooseDeckOption}
+        </Container>
+
+        <div className='category-buttons'>
+          <Button onClick={(e) => this.getCategoryDeck(e)} id="ruby">
+            Ruby
+          </Button>
+          <Button onClick={(e) => this.getCategoryDeck(e)} id="javascript"> 
+            JavaScript
+          </Button>
+          <Button onClick={(e) => this.getCategoryDeck(e)} id="commands">
+            Git Commands
+          </Button>
+        </div>
+      </>
     )
   }
 }
