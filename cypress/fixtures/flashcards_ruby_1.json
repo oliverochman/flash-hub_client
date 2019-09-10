@@ -1,0 +1,75 @@
+{
+  "decks": [
+    {
+      "category": "Ruby",
+      "flashcards": [
+        {
+          "id": 1,
+          "question": "What do you call a method with exclamation point? 2 answers.",
+          "answer": "Bang version of the method or unsafe method."
+        },
+      
+        {
+          "id": 2,
+          "question": "What is difference between gsub and sub?",
+          "answer": "gsub is 'general' sub and replaces all instances. sub only replaces first instance."
+        },
+      
+        {
+          "id": 3,
+          "question": "How do you use nil?",
+          "answer": "puts 'Couldn't find answer' if [1, 2, 3].index(42).nil?"
+        },
+      
+        {
+          "id": 4,
+          "question": "Object that is a block of code that can be bound to a set of local variables",
+          "answer": "Proc"
+        },
+      
+        {
+          "id": 5,
+          "question": "Turn 'Tom', 'Bill', 'Jerry' into the string 'Tom, Bill, Jerry'",
+          "answer": "Use array.join(', ')"
+        },
+      
+        {
+          "id": 6,
+          "question": "What is a function declaration compared to a function expression?",
+          "answer": "declaration: function myFunc(){ ... }, expression: var myFunc = function() { ... }"
+        },
+      
+        {
+          "id": 7,
+          "question": "How could you get today’s day (e.g. “Monday”) from the date object?",
+          "answer": "You need to make an array with Sunday at 0 index and Saturday at 7 index. Then use getDay() and find the day using your array."
+        },
+      
+        {
+          "id": 8,
+          "question": "What does a for ... in loop do and what does it look like?",
+          "answer": "It iterates over the enumerable properties in an object like this: for (var prop in obj) {// optionally, find only properties of this object, not the objects from which it inherits if (obj.hasOwnProperty(prop) { // do something"
+        },
+      
+        {
+          "id": 9,
+          "question": "How do you access the function you are in (e.g. for a factorial)?",
+          "answer": "Use the name of the function. Arguments.caller is deprecated."
+        },
+      
+        {
+          "id": 10,
+          "question": "var s = String; typeof s will be what?",
+          "answer": "'function'"
+        }
+      ]
+    }  
+  ],
+  "meta": {
+    "currentPage": 2,
+    "nextPage": null,
+    "prevPage": 1, 
+    "totalPages": 2, 
+    "totalCount": 2
+  }
+}
