@@ -32,7 +32,8 @@ describe('Visitor can choose to repeat the deck or get a new deck', () => {
       }
 
       cy.get('#get-new-deck').click()
-
+      
+      cy.get('#category_Ruby').contains('Ruby');
       cy.get('#question_1').contains('Quotes used with string interpolation');
       cy.get('#answer_1').contains("# double quote");
     })
@@ -47,6 +48,7 @@ describe('Visitor can choose to repeat the deck or get a new deck', () => {
 
       cy.get('#repeat-deck').click()
 
+      cy.get('#category_JavaScript').contains('JavaScript')
       cy.get('#question_1').contains('How can you include an external javascript file?');
       cy.get('#answer_1').contains("/script src='myfile.js'/");
     })
