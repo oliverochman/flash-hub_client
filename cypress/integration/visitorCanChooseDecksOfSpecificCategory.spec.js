@@ -11,7 +11,7 @@ describe('Visitor can choose decks of a specific category', () => {
   });
 
   it('Displays option buttons for different categories', async () => {
-    cy.get('.category-buttons').within(() => {
+    cy.get('#category-buttons').within(() => {
       cy.get('#ruby').contains('Ruby');
       cy.get('#javascript').contains('JavaScript');
       cy.get('#commands').contains('Git Commands');

@@ -3,6 +3,7 @@ import axios from "axios";
 import { updateFlashcardStatus } from "../modules/updateFlashcardStatus";
 import Flashcard from "./Flashcard";
 import { Container, Button } from 'semantic-ui-react';
+import CategoryButtons from './CategoryButtons';
 
 export class PresentFlashcard extends Component {
   state = {
@@ -121,17 +122,8 @@ export class PresentFlashcard extends Component {
           {chooseDeckOption}
         </Container>
 
-        <div className='category-buttons'>
-          <Button onClick={(e) => this.getCategoryDeck(e)} id="ruby">
-            Ruby
-          </Button>
-          <Button onClick={(e) => this.getCategoryDeck(e)} id="javascript"> 
-            JavaScript
-          </Button>
-          <Button onClick={(e) => this.getCategoryDeck(e)} id="commands">
-            Git Commands
-          </Button>
-        </div>
+        <CategoryButtons
+          getCategoryDeck={this.state.getCategoryDeck} />
       </>
     )
   }
