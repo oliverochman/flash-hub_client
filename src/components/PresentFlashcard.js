@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { updateFlashcardStatus } from "../modules/updateFlashcardStatus";
 import Flashcard from "./Flashcard";
-import { Container, Button } from 'semantic-ui-react';
+import { Container, Button, Grid } from 'semantic-ui-react';
 import CategoryButtons from './CategoryButtons';
 
 export class PresentFlashcard extends Component {
@@ -105,18 +105,24 @@ export class PresentFlashcard extends Component {
     if (this.state.renderDeckOption === true) {
       chooseDeckOption = (
         <>
-          <Container>
-            <Button onClick={() => this.repeatCurrentDeck()}
-              id="repeat-deck"
-              basic color='red'
-            >
-              Repeat
-          </Button>
-            <Button onClick={() => this.getNewDeck()}
-              id="get-new-deck"
-              basic color='green'>
-              New Deck
-          </Button>
+        <Container>
+            <Grid id='repeat' centered columns={20}>
+              <Grid.Column verticalAlign='middle' width={40} >
+                  <Button onClick={() => this.repeatCurrentDeck()} 
+                    style={{ width: 200, height: 40 }}
+                    id="repeat-deck"
+                    basic color='red'
+                  >
+                    Repeat
+                </Button>
+                  <Button onClick={() => this.getNewDeck()} 
+                    style={{ width: 200, height: 40 }}
+                    id="get-new-deck"
+                    basic color='green'>
+                    New Deck
+                </Button>
+              </Grid.Column>
+            </Grid>
           </Container>
         </>
       )
