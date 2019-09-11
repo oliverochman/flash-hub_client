@@ -24,7 +24,7 @@ describe('User can login', () => {
       method: 'POST',
       url: 'http://localhost:3000/api/auth/sign_in',
       response: 'fixture:unsuccessful_user_login.json',
-      status: 400
+      status: 422
     });
     cy.user_login('johndoe@email.com', 'wrong_password');
     cy.get('#flash').should('contain', 'Ooops! Invalid login credentials, please try again.');

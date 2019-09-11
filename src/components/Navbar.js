@@ -16,14 +16,9 @@ class Navbar extends Component {
     if (this.props.currentUser.isSignedIn === false) {
       loginActions = (
         <>
-          <Menu.Item style={{ color: 'orange' }}
-            id='login-button'
-            name='login'
-            active={activeItem === 'login'}
-            onClick={this.handleItemClick}
-            >
+          <Menu.Item>
               <LoginForm />
-            </Menu.Item>
+          </Menu.Item>
             <Menu.Item style={{ color: '#E58869' }}
               name='signup'
               active={activeItem === 'signup'}
@@ -51,9 +46,9 @@ class Navbar extends Component {
 const mapStateToProps = state => {
   return {
     currentUser: state.reduxTokenAuth.currentUser,
-    // showFlash: state.flashes.showFlash
   };
 };
+
 export default connect(
   mapStateToProps
 )(Navbar);

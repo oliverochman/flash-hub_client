@@ -4,7 +4,6 @@ import App from './App';
 import { Provider } from "react-redux";
 import configureStore from "./state/store/configureStore";
 
-
 const store = configureStore();
 
 ReactDOM.render(
@@ -13,4 +12,3 @@ ReactDOM.render(
   </Provider>,
 document.getElementById('root')
 );
-
