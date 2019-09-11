@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Menu, Header } from 'semantic-ui-react';
+import { Menu, Header, Container } from 'semantic-ui-react';
 import '../styling/customize.css';
 import LoginForm from './LoginForm';
 import { connect } from 'react-redux';
+import AlertMessage from './AlertMessage';
 
 class Navbar extends Component {
   state = {}
@@ -11,8 +12,12 @@ class Navbar extends Component {
 
   render() {
     let loginActions;
+    let flashMessage;
+    const { activeItem } = this.state;
 
-    const { activeItem } = this.state
+    if (this.props.showFlash === true) {
+      flashMessage = <AlertMessage />;
+    }
 
     if (this.props.currentUser.isSignedIn === false) {
       loginActions = (
@@ -44,6 +49,7 @@ class Navbar extends Component {
         <Menu.Menu position='right'>
           {loginActions}
         </Menu.Menu>
+        <Container>{flashMessage}</Container>
       </Menu>
     )
   }
@@ -51,9 +57,12 @@ class Navbar extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.reduxTokenAuth.currentUser
+    currentUser: state.reduxTokenAuth.currentUser,
+    // showFlash: state.flashes.showFlash
   };
 };
-export default connect(mapStateToProps)(Navbar);
+export default connect(
+  mapStateToProps
+)(Navbar);
 
 

@@ -1,4 +1,3 @@
-{ 
-  "success": false,
-  "errors": ["Ooops! Invalid login credentials, please try again."]
+{
+  "errors": "Ooops! Invalid login credentials, please try again."
 }

@@ -27,6 +27,6 @@ describe('User can login', () => {
       status: 400
     });
     cy.user_login('johndoe@email.com', 'wrong_password');
-    cy.contains('Ooops! Invalid login credentials, please try again.');
+    cy.get('#flash').should('contain', 'Ooops! Invalid login credentials, please try again.');
   });
 });

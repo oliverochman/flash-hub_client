@@ -14,11 +14,12 @@ class LoginForm extends Component {
     const { signInUser } = this.props;
     const { email, password } = this.state;
     signInUser({ email, password })
-    try {
-    } catch (error) {
-      this.props.dispatchFlash(error.response.data.errors[0], "error");
-    }
-  };
+      .then()
+      .catch(error => {
+        console.log(error);
+        this.props.dispatchFlash(error.response.data.errors, "error");
+      }
+  )};
 
   render() {
     return (
