@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Menu, Button, Form, Modal, Header } from 'semantic-ui-react';
+import { Menu, Button, Form, Modal, Header, Container } from 'semantic-ui-react';
 import { signInUser } from '../state/actions/reduxTokenAuthConfig';
 import { connect } from 'react-redux';
+import AlertMessage from './AlertMessage';
 
 class LoginForm extends Component {
   state = {
@@ -22,6 +23,11 @@ class LoginForm extends Component {
   )};
 
   render() {
+    let flashMessage;
+
+    if (this.props.showFlash === true) {
+      flashMessage = <AlertMessage />;
+    }
     return (
       <>
         <Modal 
@@ -32,6 +38,7 @@ class LoginForm extends Component {
             Log In
             </Menu.Item>}
           >
+        <Container>{flashMessage}</Container>
         <Header>Log In</Header>
           <Form id='login-form' onSubmit={this.loginHandler}>
             <Form.Field>
@@ -61,7 +68,8 @@ class LoginForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.reduxTokenAuth.currentUser
+    currentUser: state.reduxTokenAuth.currentUser,
+    showFlash: state.flashes.showFlash
   };
 };
 
