@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Menu, Header } from 'semantic-ui-react';
 import '../styling/customize.css';
 import LoginForm from './LoginForm';
+import MyFlashcards from './MyFlashcards';
 import { connect } from 'react-redux';
 
 class Navbar extends Component {
@@ -34,8 +35,8 @@ class Navbar extends Component {
     if (this.props.currentUser.isSignedIn === true) {
       userSavedFlashcards = (
         <>
-          <Menu.Item id='my-flashcards-button'>
-            My Flashcards
+          <Menu.Item>
+            <MyFlashcards />
           </Menu.Item>
         </>
       )

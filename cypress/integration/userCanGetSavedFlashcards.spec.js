@@ -23,11 +23,10 @@ describe('User can get saved flashcards', () => {
     cy.user_login('julie@dash.com', 'password');
 
     cy.get('#my-flashcards-button').click();
-
-    // cy.get('#my-flashcards').within(() => {
-    //   cy.get('#category_JavaScript').contains('JavaScript');
-    //   cy.get('#question_3').contains('How can you include an external javascript file?');
-    //   cy.get('#answer_3').contains("/script src='myfile.js'/");
-    // });
-  }); 
+    cy.get('#my-flashcards').within(() => {
+      cy.get('#category_JavaScript').contains('JavaScript');
+      cy.get('#question_3').contains('How can you include an external javascript file?');
+      cy.get('#answer_3').contains("/script src='myfile.js'/");
+    })
+  });
 });
