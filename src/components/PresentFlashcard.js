@@ -48,6 +48,7 @@ export class PresentFlashcard extends Component {
     });
   };
 
+
   repeatCurrentDeck = () => {
     this.setState({
       activeFlashcard: 0,
