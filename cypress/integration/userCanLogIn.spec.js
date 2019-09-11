@@ -16,7 +16,7 @@ describe('User can login', () => {
       response: 'fixture:successful_user_login.json',
       status: 200
     });
-    cy.user_login('johndoe@email.com', 'password');
+    cy.user_login('julie@dash.com', 'password');
   });
 
   it('Attempts to log in with invalid login credentials', () => {
@@ -26,7 +26,7 @@ describe('User can login', () => {
       response: 'fixture:unsuccessful_user_login.json',
       status: 422
     });
-    cy.user_login('johndoe@email.com', 'wrong_password');
+    cy.user_login('julie@dash.com', 'wrong_password');
     cy.get('#flash').should('contain', 'Ooops! Invalid login credentials, please try again.');
   });
 });
