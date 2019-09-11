@@ -16,8 +16,37 @@
   color: rgb(125, 150, 37);
 }
 
+/* Category buttons */
+#ruby {
+  border: 2px solid rgb(201, 184, 29);
+  border-radius: 5px;
+  background-color: white;
+  color: rgb(201, 184, 29)
+}
+
+#javascript{  
+  border: 2px solid rgb(125, 150, 37);
+  border-radius: 5px;
+  background-color: white;
+  color: rgb(125, 150, 37);
+}
+
+#commands{
+  border: 2px solid rgb(131, 75, 57);
+  border-radius: 5px;
+  background-color: white;
+  color: rgb(131, 75, 57);
+}
+
+#category-buttons{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 #header{
   margin-top: 2px;
   margin-left: 2rem;
   padding-top: 1rem;
 }
+
