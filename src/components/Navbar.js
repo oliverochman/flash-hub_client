@@ -1,40 +1,56 @@
 import React, { Component } from 'react';
 import { Menu, Header } from 'semantic-ui-react';
 import '../styling/customize.css';
+import LoginForm from './LoginForm';
+import { connect } from 'react-redux';
 
 class Navbar extends Component {
-  state = { }
+  state = {}
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    const { activeItem } = this.state
+    let loginActions;
+    const { activeItem } = this.state;
+
+    if (this.props.currentUser.isSignedIn === false) {
+      loginActions = (
+        <>
+          <Menu.Item>
+              <LoginForm />
+          </Menu.Item>
+            <Menu.Item style={{ color: '#E58869' }}
+              name='signup'
+              active={activeItem === 'signup'}
+              onClick={this.handleItemClick}
+            >
+              Sign Up
+          </Menu.Item>
+        </>
+      ); 
+    };
 
     return (
       <Menu id='navbar'>
         <Header position='left' id='header' style={{ color: 'brown', fontSize: '2rem', fontFamily: 'Lexend Giga' }}>
           Flashcard Hub
-          </Header>
+        </Header>
         <Menu.Menu position='right'>
-          <Menu.Item style={{ color: 'orange' }}
-            name='login'
-            active={activeItem === 'login'}
-            onClick={this.handleItemClick}
-          >
-            Log In
-          </Menu.Item>
-          <Menu.Item style={{ color: '#E58869' }}
-            name='signup'
-            active={activeItem === 'signup'}
-            onClick={this.handleItemClick}
-          >
-            Sign Up
-          </Menu.Item>
+          {loginActions}
         </Menu.Menu>
       </Menu>
     )
   }
 }
 
-export default Navbar;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser,
+  };
+};
+
+export default connect(
+  mapStateToProps
+)(Navbar);
+
 

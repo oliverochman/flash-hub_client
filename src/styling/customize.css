@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lexend+Giga&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Giga|Londrina+Shadow|&display=swap');
 
 /* Status buttons */
 #red {
@@ -14,6 +14,23 @@
 #green {
   background-color: #D1E687;
   color: rgb(125, 150, 37);
+}
+
+/* Login and Signup Buttons */ 
+#login-button {
+  background-color: rgb(255, 255, 255);
+  border: white;
+  color: rgb(125, 150, 37);
+}
+
+#login-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#submit-login-form:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Category buttons */
@@ -38,6 +55,7 @@
   color: rgb(131, 75, 57);
 }
 
+/* Header */ 
 #category-buttons{
   position: absolute;
   bottom: 0;
@@ -50,3 +68,24 @@
   padding-top: 1rem;
 }
 
+/* Login Form  */
+#password-title{
+  color: white;
+}
+
+#email-title{
+  color: white;
+}
+
+#login-modal{
+  align-items: center;
+}
+
+/* Modal  */
+#modal {
+  margin: 0 auto!important;
+  top: auto !important;
+  left: auto !important;
+  transform-origin: center !important;
+  transition: all ease .5s;
+}
