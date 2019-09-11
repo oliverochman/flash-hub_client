@@ -1,9 +1,24 @@
 describe('Visitor can choose decks of a specific category', () => {
   beforeEach(() => {
     cy.server();
+
     cy.route({
       method: 'GET',
       url: 'http://localhost:3000/api/decks',
+      response: 'fixture:flashcards.json',
+      status: 200
+    });
+
+    cy.route({
+      method: 'GET',
+      url: 'http://localhost:3000/api/decks/?category**',
+      response: 'fixture:flashcards_ruby_1.json',
+      status: 200
+    })
+
+    cy.route({
+      method: 'GET',
+      url: 'http://localhost:3000/api/decks/?page**',
       response: 'fixture:flashcards_second_page.json',
       status: 200
     });
@@ -15,12 +30,7 @@ describe('Visitor can choose decks of a specific category', () => {
       status: 200
     });
 
-    cy.route({
-      method: 'GET',
-      url: 'http://localhost:3000/api/decks',
-      response: 'fixture:flashcards.json',
-      status: 200
-    });
+    
     cy.visit('http://localhost:3001');
   });
 
@@ -34,34 +44,19 @@ describe('Visitor can choose decks of a specific category', () => {
     });
   });
 
-  // describe("Visitor can get decks of 'Ruby' category only", () => {
-  //   it('successfully', () => {
-  //     cy.get('#ruby').click();
-
-  //     for(let n = 0; n < 10; n ++){
-  //       cy.get('#green').click()
-  //       cy.wait(500)
-  //     }
-
-  //     cy.get('#get-new-deck').click();
-  //     cy.get('#question_1').contains('What do you call a method with exclamation point? 2 answers.');
-  //     cy.get('#answer_1').contains('Bang version of the method or unsafe method');
-  //   })
-  // });
-
-  describe("Visitor can get decks of 'Ruby' category first and then change to JavaScript", () => {
+  describe("Visitor can get decks of 'Ruby' category only", () => {
     it('successfully', () => {
       cy.get('#ruby').click();
 
       for(let n = 0; n < 10; n ++){
-        cy.get('#red').click()
+        cy.get('#green').click()
         cy.wait(500)
       }
 
-      cy.get('#javascript').click();
       cy.get('#get-new-deck').click();
-      cy.get('#question_1').contains('How can you include an external javascript file?');
-      cy.get('#answer_1').contains("/script src='myfile.js'/");
+      
+      cy.get('#question_1').contains('Quotes used with string interpolation');
+      cy.get('#answer_1').contains("# double quote");
     })
   });
 })
