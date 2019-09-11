@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Button, Form, Modal, Header } from 'semantic-ui-react';
-import { userLogin } from 'redux-token-auth';
+import { signInUser } from '../state/actions/reduxTokenAuthConfig';
 import { connect } from 'react-redux';
 
 class LoginForm extends Component {
@@ -9,9 +9,22 @@ class LoginForm extends Component {
     password: []
   }
 
+  loginHandler = e => {
+    e.preventDefault();
+    const { signInUser } = this.props;
+    const { email, password } = this.state;
+    signInUser({ email, password })
+    .then()
+    .catch(error => {
+      console.log('Error occured when trying to log in');
+    });
+      // try {
 
+      // } catch (error) {
+      //   return console.log('Error occured when trying to log in');
+      // }
+  }
   render() {
-    
     return (
       <>
         <Modal 
@@ -23,14 +36,23 @@ class LoginForm extends Component {
             </Menu.Item>}
           >
         <Header>Log In</Header>
-          <Form id='login-form'>
+          <Form id='login-form' onSubmit={this.loginHandler}>
             <Form.Field>
               <label>E-mail</label>
-              <input id='email' placeholder='E-mail' />
+              <input 
+                id='email'
+                placeholder='E-mail'
+                onChange={e => this.setState({ email: e.target.value })}
+              />
             </Form.Field>
             <Form.Field>
               <label>Password</label>
-              <input id='password' placeholder='Password' type='password' />
+              <input 
+                id='password' 
+                placeholder='Password' 
+                type='password'
+                onChange={e => this.setState({ password: e.target.value })}
+              />
             </Form.Field>
             <Button id='submit-login-form' type='submit'>Log In</Button>
           </Form>
@@ -48,4 +70,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
+  { signInUser }
 )(LoginForm);
