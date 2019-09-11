@@ -14,15 +14,10 @@ class LoginForm extends Component {
     const { signInUser } = this.props;
     const { email, password } = this.state;
     signInUser({ email, password })
-    .then()
-    .catch(error => {
-      console.log('Error occured when trying to log in');
-    });
-      // try {
-
-      // } catch (error) {
-      //   return console.log('Error occured when trying to log in');
-      // }
+    try {
+    } catch (error) {
+    return error.response.data.error;
+    }
   }
   render() {
     return (
