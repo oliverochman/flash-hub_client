@@ -11,7 +11,8 @@
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "redux-token-auth": "^0.19.0"
+    "redux-token-auth": "^0.19.0",
+    "react-flash-message": "^1.0.2"
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",
