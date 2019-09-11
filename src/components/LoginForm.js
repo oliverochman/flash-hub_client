@@ -30,7 +30,7 @@ class LoginForm extends Component {
     }
     return (
       <>
-      <Modal basic size='small' trigger={<Button id='login-button'>Log In</Button>}>
+      <Modal id='modal' basic size='small' trigger={<Button id='login-button'>Log In</Button>}>
         <Container>{flashMessage}</Container>
           <h1 style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Londrina Shadow' }}>
             Log In
