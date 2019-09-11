@@ -11,24 +11,38 @@ class Navbar extends Component {
 
   render() {
     let loginActions;
+    let userSavedFlashcards;
     const { activeItem } = this.state;
 
     if (this.props.currentUser.isSignedIn === false) {
       loginActions = (
         <>
           <Menu.Item>
-              <LoginForm />
+            <LoginForm />
           </Menu.Item>
-            <Menu.Item style={{ color: '#E58869' }}
-              name='signup'
-              active={activeItem === 'signup'}
-              onClick={this.handleItemClick}
-            >
-              Sign Up
+          <Menu.Item style={{ color: '#E58869' }}
+            name='signup'
+            active={activeItem === 'signup'}
+            onClick={this.handleItemClick}
+          >
+            Sign Up
           </Menu.Item>
         </>
-      ); 
+      );
     };
+
+    if (this.props.currentUser.isSignedIn === true) {
+      userSavedFlashcards = (
+        <>
+          <Menu.Item id='my-flashcards-button'>
+            My Flashcards
+          </Menu.Item>
+        </>
+      )
+      // logoutActions = (
+      //   <LogOut />
+      // )
+    }
 
     return (
       <Menu id='navbar'>
@@ -37,6 +51,7 @@ class Navbar extends Component {
         </Header>
         <Menu.Menu position='right'>
           {loginActions}
+          {userSavedFlashcards}
         </Menu.Menu>
       </Menu>
     )
