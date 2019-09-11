@@ -16,9 +16,10 @@ class LoginForm extends Component {
     signInUser({ email, password })
     try {
     } catch (error) {
-    return error.response.data.error;
+      this.props.dispatchFlash(error.response.data.errors[0], "error");
     }
-  }
+  };
+
   render() {
     return (
       <>
@@ -63,7 +64,15 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = {
+  dispatchFlash: (message, status) => ({
+    type: "SHOW_FLASH_MESSAGE",
+    payload: { flashMessage: message, status: status }
+  }),
+  signInUser
+};
+
 export default connect(
   mapStateToProps,
-  { signInUser }
+  mapDispatchToProps,
 )(LoginForm);
