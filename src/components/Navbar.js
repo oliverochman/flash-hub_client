@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Menu, Header } from 'semantic-ui-react';
 import '../styling/customize.css';
 import LoginForm from './LoginForm';
+import Logout from './Logout'
 import { connect } from 'react-redux';
 
 class Navbar extends Component {
@@ -11,24 +12,32 @@ class Navbar extends Component {
 
   render() {
     let loginActions;
+    let logoutActions;
     const { activeItem } = this.state;
 
     if (this.props.currentUser.isSignedIn === false) {
       loginActions = (
         <>
           <Menu.Item>
-              <LoginForm />
+            <LoginForm />
           </Menu.Item>
-            <Menu.Item style={{ color: '#E58869' }}
-              name='signup'
-              active={activeItem === 'signup'}
-              onClick={this.handleItemClick}
-            >
-              Sign Up
+          <Menu.Item style={{ color: '#E58869' }}
+            name='signup'
+            active={activeItem === 'signup'}
+            onClick={this.handleItemClick}
+          >
+            Sign Up
           </Menu.Item>
         </>
-      ); 
-    };
+      )
+    } else {
+      logoutActions = (
+        <Menu.Item id=''>
+          <Logout />
+        </Menu.Item>
+      )
+    }
+
 
     return (
       <Menu id='navbar'>
@@ -37,6 +46,7 @@ class Navbar extends Component {
         </Header>
         <Menu.Menu position='right'>
           {loginActions}
+          {logoutActions}
         </Menu.Menu>
       </Menu>
     )
