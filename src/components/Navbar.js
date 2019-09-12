@@ -2,29 +2,23 @@ import React, { Component } from 'react';
 import { Menu, Header } from 'semantic-ui-react';
 import '../styling/customize.css';
 import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
 import { connect } from 'react-redux';
 
 class Navbar extends Component {
   state = {}
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
   render() {
     let loginActions;
-    const { activeItem } = this.state;
 
     if (this.props.currentUser.isSignedIn === false) {
       loginActions = (
         <>
           <Menu.Item>
-              <LoginForm />
+            <LoginForm />
           </Menu.Item>
-            <Menu.Item style={{ color: '#E58869' }}
-              name='signup'
-              active={activeItem === 'signup'}
-              onClick={this.handleItemClick}
-            >
-              Sign Up
+          <Menu.Item>
+            <SignupForm />
           </Menu.Item>
         </>
       ); 
