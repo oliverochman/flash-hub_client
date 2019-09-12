@@ -9,7 +9,6 @@ class SavedFlashcards extends Component {
     };
   };
   render() {
-  let saved_flashcard;
 
   return (
     <>
@@ -31,7 +30,7 @@ class SavedFlashcards extends Component {
                     JavaScript
                   </Label>
                   </Grid.Column>
-                  <Card.Header as="h1" className="ui orange header" id={`question_${this.props.currentUser.uid}_${saved_flashcard.id}`} style={{ marginTop: '5em' }} textAlign='center'>
+                  <Card.Header as="h1" className="ui orange header" id='saved_question_1' style={{ marginTop: '5em' }} textAlign='center'>
                     Question
                   </Card.Header>
                 </Card>
@@ -43,7 +42,7 @@ class SavedFlashcards extends Component {
                     JavaScript
                   </Label>
                   </Grid.Column>
-                  <Card.Header as="h3" className="ui black header" id='saved_answer_1'style={{ marginTop: '9em', marginLeft: '1em', marginRight: '1em' }} textAlign='center'>
+                  <Card.Header as="h3" className="ui black header" id='saved_answer_1' style={{ marginTop: '9em', marginLeft: '1em', marginRight: '1em' }} textAlign='center'>
                     Answer
                   </Card.Header>
                 </Card>
