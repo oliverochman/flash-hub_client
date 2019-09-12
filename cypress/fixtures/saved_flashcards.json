@@ -1,6 +1,6 @@
 {
   "category": "JavaScript",
-  "my_flashcards": [
+  "saved_flashcards": [
     {
       "id": 1,
       "question": "var s = String; typeof s will be what?",
