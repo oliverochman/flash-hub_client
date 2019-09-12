@@ -9,18 +9,11 @@ describe('User can get saved flashcards', () => {
     });
 
     cy.route({
-      method: 'POST',
-      url: 'http://localhost:3000/api/auth/sign_in',
-      response: 'fixture:successful_user_login.json',
-      status: 200
-    })
-    cy.route({
       method: 'GET',
       url: 'http://localhost:3000/api/saved_flashcards',
       response: 'fixture:saved_flashcards.json',
       status: 200
     });
-    cy.visit('http://localhost:3001');
     cy.user_login('julie@dash.com', 'password');
   });
 
