@@ -15,9 +15,7 @@ class LoginForm extends Component {
     const { signInUser } = this.props;
     const { email, password } = this.state;
     signInUser({ email, password })
-      .then(() => {
-        // debugger;
-      })
+      .then()
       .catch(error => {
         console.log(error);
         this.props.dispatchFlash(error.response.data.errors, "error");

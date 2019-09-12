@@ -14,7 +14,7 @@ describe('User can get saved flashcards', () => {
       response: 'fixture:saved_flashcards.json',
       status: 200
     });
-    cy.user_login('julie@dash.com', 'password');
+    cy.user_successful_login('julie@dash.com', 'password');
   });
 
   it('Chooses to see flashcards with status red', () => {
