@@ -15,9 +15,7 @@ class LoginForm extends Component {
     const { signInUser } = this.props;
     const { email, password } = this.state;
     signInUser({ email, password })
-      .then((response) => {
-        debugger;
-      })
+      .then()
       .catch(error => {
         debugger;
         console.log(error);

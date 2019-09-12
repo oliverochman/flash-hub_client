@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import SavedFlashcards from './SavedFlashcards';
 import axios from 'axios';
+import Flashcard from './Flashcard';
 
 class PresentSavedFlashcards extends Component {
   state = {
-    saved_flashcards: [],
-    currentUser: {},
-    isSignedIn: true
+    savedFlashcards: []
   };
 
   componentDidMount() {
@@ -15,22 +14,40 @@ class PresentSavedFlashcards extends Component {
 
   async getSavedFlashcards() {
     try {
-      const response = await axios.get(
-        `/${this.props.currentUser.id}/saved_flashcards`
-      );
-        this.setState({ savedFlashcards: response.data });
-      } catch (error) {
-        this.props.dispatchFlash(error.response.data.errors, "error");
-      }
+      const response = await axios.get("http://localhost:3000/api/saved_flashcards");
+      this.setState({ savedFlashcards: response.data });
+
+      // kolla hur många kort ni fick o sätt det i en state
+    } catch (error) {
+      // this.props.dispatchFlash(error.response.data.errors, "error");
+      console.log(error)
+    }
   };
+
+  nextCard = () => {
+    // om de inte är sista kortet 
+    // this.setState({
+    //   activeCard: activeCard + 1
+    // })
+
+    // annars
+    // this.setState({
+    //   activeCard: 0
+    // })
+  }
 
   render() {
     let savedFlashcardDisplay;
-    let saved_flashcards;
 
-    if (this.props.currentUser && saved_flashcards.length >= 1) {
+    if (this.state.savedFlashcards.length >= 1) {
       savedFlashcardDisplay = (
-        <SavedFlashcards/>
+
+        <Flashcard
+          currentDeckCategory={'User Saved'}
+          flashcard={this.state.savedFlashcards[this.state.activeCard]}
+          key={this.state.savedFlashcards[this.state.activeCard].id}
+          nextCard={this.nextCard}
+        />
       );
     };
     return (

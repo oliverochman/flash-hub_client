@@ -5,9 +5,7 @@ class SavedFlashcards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: {},
-      saved_flashcards: [],
-      isSignedIn: true
+      saved_flashcards: []
     };
   };
   render() {
@@ -33,7 +31,7 @@ class SavedFlashcards extends Component {
                     JavaScript
                   </Label>
                   </Grid.Column>
-                  <Card.Header as="h1" className="ui orange header" id={`question_${this.props.currentUser.uid}_${saved_flashcard.id}`} style={{ marginTop: '5em' }} textAlign='center'>
+                  <Card.Header as="h1" className="ui orange header" id={'hello'} style={{ marginTop: '5em' }} textAlign='center'>
                     Question
                   </Card.Header>
                 </Card>
