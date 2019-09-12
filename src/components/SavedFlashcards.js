@@ -5,9 +5,7 @@ class SavedFlashcards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: {},
-      saved_flashcards: [],
-      isSignedIn: true
+      saved_flashcards: []
     };
   };
   render() {

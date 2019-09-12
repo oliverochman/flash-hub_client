@@ -5,6 +5,7 @@ import Flashcard from "./Flashcard";
 import { Container, Button, Grid } from 'semantic-ui-react';
 import CategoryButtons from './CategoryButtons';
 
+
 export class PresentFlashcard extends Component {
   state = {
     flashcards: [],

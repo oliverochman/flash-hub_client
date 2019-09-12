@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import SavedFlashcards from './SavedFlashcards';
+// import SavedFlashcards from './SavedFlashcards';
 import axios from 'axios';
+import Flashcard from './Flashcard';
 
 class PresentSavedFlashcards extends Component {
   state = {
@@ -30,7 +31,12 @@ class PresentSavedFlashcards extends Component {
 
     if (this.props.currentUser && saved_flashcards.length >= 1) {
       savedFlashcardDisplay = (
-        <SavedFlashcards/>
+        <Flashcard
+          currentDeckCategory={'User Saved'}
+          flashcard={this.state.savedFlashcards[this.state.activeCard]}
+          key={this.state.savedFlashcards[this.state.activeCard].id}
+          nextCard={this.nextCard}
+        />
       );
     };
     return (
