@@ -16,5 +16,5 @@ Cypress.Commands.add('visitor_signup', (email, password, password_confirmation) 
     cy.get('input[id="password"]').type(password);
     cy.get('input[id="password_confirmation"]').type(password_confirmation);
   });
-  cy.get('#submit-signup-form').click();
+  // cy.get('#submit-signup-form').click();
 });

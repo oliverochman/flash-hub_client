@@ -17,6 +17,6 @@ describe('Visitor can signup', () => {
       status: 200
     });
     cy.visitor_signup('julie@dash.com', 'password', 'password');
-    // cy.get('#submit-signup-form').click();
+    cy.get('#submit-signup-form').click();
   });
 });
