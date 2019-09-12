@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Menu, Header } from 'semantic-ui-react';
 import '../styling/customize.css';
 import LoginForm from './LoginForm';
-import PresentSavedFlashcards from './PresentSavedFlashcards';
+import SavedFlashcards from './SavedFlashcards';
 import { connect } from 'react-redux';
 
 class Navbar extends Component {
@@ -36,7 +36,7 @@ class Navbar extends Component {
       userSavedFlashcards = (
         <>
           <Menu.Item>
-            <PresentSavedFlashcards />
+            <SavedFlashcards />
           </Menu.Item>
         </>
       )
