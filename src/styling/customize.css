@@ -83,9 +83,10 @@
 
 /* Modal  */
 #modal {
+  /* position: flex !important; */
   margin: 0 auto!important;
   top: auto !important;
   left: auto !important;
   transform-origin: center !important;
-  transition: all ease .5s;
+  transition: all ease .2s;
 }
