@@ -39,6 +39,7 @@ class Navbar extends Component {
           <Menu.Item>
             <Modal 
               centered={false}
+              id='modal'
               trigger={
                 <Button id='my-flashcards-button'>
                   My Flashcards

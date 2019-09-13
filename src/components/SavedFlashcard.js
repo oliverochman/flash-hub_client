@@ -21,7 +21,7 @@ const SavedFlashcard = (props) => {
                   </Label>
                   </Grid.Column>
                   <Card.Header as="h1" className="ui orange header" id={`saved_question_${savedFlashcard.id}`} style={{ marginTop: '5em' }} textAlign='center'>
-                    `${savedFlashcard.question}`
+                    {savedFlashcard.question}
                   </Card.Header>
                 </Card>
               </Reveal.Content>
