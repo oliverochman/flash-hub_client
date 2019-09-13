@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Modal, Button, Container, Card, Grid, Label, Reveal } from 'semantic-ui-react';
 
 const SavedFlashcards = (props) => {
-    let flashcard = props.flashcard;
-
+    let savedFlashcard = props.savedFlashcard;
+  console.log(props)
   return (
     <>
       <Modal centered={false} 
@@ -15,7 +15,7 @@ const SavedFlashcards = (props) => {
           <Grid.Column width={11}>
           <Button>Red</Button>
           <Button>Red + Yellow</Button>
-            <Reveal animated='fade' id={`saved_id_${flashcard.id}`}>
+            <Reveal animated='fade' id={`saved_id_${savedFlashcard}`}>
               <Reveal.Content visible>
                 <Card style={{ width: 580, height: 400 }}>
                   <Grid.Column width={2}>

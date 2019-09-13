@@ -6,7 +6,8 @@ class PresentSavedFlashcards extends Component {
   state = {
     saved_flashcards: [],
     currentUser: {},
-    isSignedIn: true
+    isSignedIn: true,
+    activeCard: 0
   };
 
   componentDidMount() {
@@ -18,7 +19,6 @@ class PresentSavedFlashcards extends Component {
       const response = await axios.get("http://localhost:3000/api/saved_flashcards");
       this.setState({ 
         savedFlashcards: response.data
-        // X number of cards
       });
     } catch (error) {
       // this.props.dispatchFlash(error.response.data.errors, "error");
@@ -26,17 +26,17 @@ class PresentSavedFlashcards extends Component {
     }
   };
 
-  nextCard = () => {
-    if (this.state.activeCard == saved_flashcard.last) {
-      this.setState({
-        activeCard: 0
-      })
-    } else {
-      this.setState({
-        activeCard: activeCard + 1
-      })
-    }
-  };
+  // nextCard = () => {
+  //   if (this.state.activeCard == saved_flashcard.last) {
+  //     this.setState({
+  //       activeCard: 0
+  //     })
+  //   } else {
+  //     this.setState({
+  //       activeCard: activeCard + 1
+  //     })
+  //   }
+  // };
 
   render() {
     const savedFlashcards = this.state.SavedFlashcards;
