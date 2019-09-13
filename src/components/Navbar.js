@@ -45,10 +45,7 @@ class Navbar extends Component {
                 <PresentSavedFlashcards />
               </Modal>
           </Menu.Item>
-          <Menu.Item>
-            Log Out
-            {Logout}
-          </Menu.Item>
+            <Logout />
         </>
       ) 
     }
