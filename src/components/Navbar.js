@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { Menu, Header } from 'semantic-ui-react';
 import '../styling/customize.css';
 import LoginForm from './LoginForm';
-import SavedFlashcards from './SavedFlashcards';
+import PresentSavedFlashcards from './PresentSavedFlashcards';
 import { connect } from 'react-redux';
+import { Modal, Button } from 'semantic-ui-react';
+
+
 
 class Navbar extends Component {
   state = {}
@@ -34,13 +37,21 @@ class Navbar extends Component {
       userSavedFlashcards = (
         <>
           <Menu.Item>
-            <SavedFlashcards />
+            <Modal 
+              centered={false}
+              trigger={
+                <Button id='my-flashcards-button'>
+                  My Flashcards
+                </Button>
+              }>
+                <PresentSavedFlashcards />
+              </Modal>
           </Menu.Item>
           <Menu.Item>
             Log Out
           </Menu.Item>
         </>
-      )
+      ) 
     }
 
     return (
@@ -59,7 +70,7 @@ class Navbar extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.reduxTokenAuth.currentUser,
+    currentUser: state.reduxTokenAuth.currentUser
   };
 };
 
