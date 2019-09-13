@@ -6,18 +6,18 @@
       "answer": "Use the name of the function. Arguments.caller is deprecated.",
       "status": "yellow"
     },
-  
+      
     {
       "id": 2,
-      "question": "var s = String; typeof s will be what?",
-      "answer": "function",
+      "question": "What does a for ... in loop do and what does it look like?",
+      "answer": "for (var prop in obj)",
       "status": "yellow"
     },
   
     {
       "id": 3,
-      "question": "What does a for ... in loop do and what does it look like?",
-      "answer": "It iterates over the enumerable properties in an object like this: for (var prop in obj) {// optionally, find only properties of this object, not the objects from which it inherits if (obj.hasOwnProperty(prop) { // do something",
+      "question": "var s = String; typeof s will be what?",
+      "answer": "function",
       "status": "yellow"
     },
   

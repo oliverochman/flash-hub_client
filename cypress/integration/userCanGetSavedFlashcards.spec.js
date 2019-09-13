@@ -45,15 +45,15 @@ describe('User can get saved flashcards', () => {
     cy.get('#change_collection').click()
     cy.get('#saved_id_1').within(() => {
       cy.get('#category_yellow').contains('yellow collection');
-      cy.get('#saved_question_1').contains('var s = String; typeof s will be what?');
+      cy.get('#saved_question_1').contains('How do you access the function you are in (e.g. for a factorial)?');
       cy.get('#saved_answer_1').contains("function");
     })
 
     cy.get('#next_card').click()
     cy.get('#saved_id_2').within(() => {
       cy.get('#category_yellow').contains('yellow collection');
-      cy.get('#saved_question_2').contains('How do you access the function you are in (e.g. for a factorial)?');
-      cy.get('#saved_answer_2').contains("Use the name of the function. Arguments.caller is deprecated.");
+      cy.get('#saved_question_2').contains('What does a for ... in loop do and what does it look like?');
+      cy.get('#saved_answer_2').contains('for (var prop in obj)');
     })
 
   });
