@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Button, Form, Modal } from 'semantic-ui-react';
+import { Button, Form, Modal, Container } from 'semantic-ui-react';
 import { registerUser } from '../state/actions/reduxTokenAuthConfig';
 import { connect } from 'react-redux';
 import '../styling/customize.css';
+import AlertMessage from './AlertMessage';
 
 class SignupForm extends Component {
   state = {
@@ -25,22 +26,28 @@ class SignupForm extends Component {
       password, 
       password_confirmation
     }) 
-    .then((response) => {
+    .then(() => {
       this.setState({
         userSaved: true,
       })
     })
     .catch(error => {
-      debugger;
       console.log("errors");
+      this.props.dispatchFlash(error.response.data.errors[0], "error");
   });
 };
 
   render() {
+    let flashMessage; 
+
+    if (this.props.showFlash === true) {
+      flashMessage = <AlertMessage />;
+    }
+
     return (
       <>
         <Modal id='signup-modal' basic size='small' trigger={<Button id='signup-button'>Sign Up</Button>}>
-{/*       <Container>{flashMessage}</Container> */}
+          <Container>{flashMessage}</Container>
         <h1 style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Londrina Shadow' }}>
           Sign Up
         </h1>
@@ -81,11 +88,20 @@ class SignupForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.reduxTokenAuth.currentUser
+    currentUser: state.reduxTokenAuth.currentUser,
+    showFlash: state.flashes.showFlash
   };
 };
 
-export default connect(
-   mapStateToProps,
-  { registerUser },
+const mapDispatchToProps = {
+  dispatchFlash: (message, status) => ({
+    type: "SHOW_FLASH_MESSAGE",
+    payload: { flashMessage: message, status: status }
+  }),
+  registerUser
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
 )(SignupForm);

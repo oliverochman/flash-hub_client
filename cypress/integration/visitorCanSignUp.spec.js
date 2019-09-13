@@ -10,7 +10,13 @@ describe('Visitor can signup', () => {
   });
 
   it('Successfully signs up', () => {
-    cy.visitor_signup('julie@dash.com', 'password', 'password');
+    cy.successful_signup('julie@dash.com', 'password', 'password');
     cy.get('#submit-signup-form').click();
+  });
+
+  it('Attempts to fill in unmatching passwords', () => {
+    cy.unsuccessful_signup('julie@dash.com', 'password', 'wrong_password');
+    cy.get('#submit-signup-form').click();
+    cy.get('#flash').should('contain','Invalid credentials to sign up. Please try again.');
   });
 });
