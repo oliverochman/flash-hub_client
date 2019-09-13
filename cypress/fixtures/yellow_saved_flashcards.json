@@ -1,16 +1,16 @@
 {
-  "saved_flashcards": [
+  "savedFlashcards": [
     {
       "id": 1,
-      "question": "var s = String; typeof s will be what?",
-      "answer": "function",
+      "question": "How do you access the function you are in (e.g. for a factorial)?",
+      "answer": "Use the name of the function. Arguments.caller is deprecated.",
       "status": "yellow"
     },
   
     {
       "id": 2,
-      "question": "How do you access the function you are in (e.g. for a factorial)?",
-      "answer": "Use the name of the function. Arguments.caller is deprecated.",
+      "question": "var s = String; typeof s will be what?",
+      "answer": "function",
       "status": "yellow"
     },
   
