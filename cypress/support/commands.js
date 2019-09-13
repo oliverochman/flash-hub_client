@@ -31,6 +31,12 @@ Cypress.Commands.add('user_unsuccessful_login', (email, password) => {
 });
 
 Cypress.Commands.add('visitor_signup', (email, password, password_confirmation) => {
+  cy.route({
+    method: 'POST',
+    url: 'http://localhost:3000/api/auth',
+    response: 'fixture:successful_signup.json',
+    status: 200
+  });
   cy.visit("http://localhost:3001");
   cy.get('#signup-button').click();
   cy.get('#signup-form').within(() => {

@@ -14,6 +14,7 @@ class Navbar extends Component {
 
   render() {
     let loginActions;
+    let userSavedFlashcards;
 
     if (this.props.currentUser.isSignedIn === false) {
       loginActions = (

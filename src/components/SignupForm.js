@@ -13,7 +13,6 @@ class SignupForm extends Component {
   }
 
   signupHandler = e => {
-    debugger;
     e.preventDefault();
     const { registerUser } = this.props;
     const {
@@ -32,6 +31,7 @@ class SignupForm extends Component {
       })
     })
     .catch(error => {
+      debugger;
       console.log("errors");
   });
 };
