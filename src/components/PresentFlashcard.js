@@ -5,6 +5,7 @@ import Flashcard from "./Flashcard";
 import { Container, Button, Grid } from 'semantic-ui-react';
 import CategoryButtons from './CategoryButtons';
 
+
 export class PresentFlashcard extends Component {
   state = {
     flashcards: [],
@@ -137,7 +138,7 @@ export class PresentFlashcard extends Component {
         </Container>
 
         <CategoryButtons
-          getCategoryDeck={this.state.getCategoryDeck} />
+          getCategoryDeck={this.getCategoryDeck} />
       </>
     )
   }

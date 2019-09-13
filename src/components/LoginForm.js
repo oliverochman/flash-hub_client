@@ -6,8 +6,8 @@ import AlertMessage from './AlertMessage';
 
 class LoginForm extends Component {
   state = {
-    email: [],
-    password: []
+    email: '',
+    password: ''
   }
 
   loginHandler = e => {

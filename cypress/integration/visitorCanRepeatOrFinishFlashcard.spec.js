@@ -8,8 +8,8 @@ describe('A flashcard has tree buttons to repeat or finish a card', () => {
       status: 200
     });
     cy.route({
-      method: 'PUT',
-      url: 'http://localhost:3000/api/flashcards/**',
+      method: 'POST',
+      url: 'http://localhost:3000/api/saved_flashcards/**',
       response: 'fixture:successful_update_flashcard_status.json',
       status: 200
     });
