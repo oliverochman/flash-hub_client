@@ -20,7 +20,7 @@
 #login-button {
   background-color: rgb(255, 255, 255);
   border: white;
-  color: rgb(125, 150, 37);
+  color:#E58869;
 }
 
 #login-button:focus {
@@ -29,6 +29,22 @@
 }
 
 #submit-login-form:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#signup-button {
+  background-color: rgb(255, 255, 255);
+  border: white;
+  color: rgb(125, 150, 37);
+}
+
+#signup-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#submit-signup-form:focus {
   outline: none !important;
   box-shadow: none !important;
 }
