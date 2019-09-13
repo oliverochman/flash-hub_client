@@ -20,7 +20,7 @@
 #login-button {
   background-color: rgb(255, 255, 255);
   border: white;
-  color:#E58869;
+  color: rgb(149, 165, 92);
 }
 
 #login-button:focus {
@@ -71,17 +71,20 @@
   color: rgb(131, 75, 57);
 }
 
-/* Header */ 
 #category-buttons{
   position: absolute;
   bottom: 0;
   width: 100%;
 }
 
+/* Header */ 
 #header{
   margin-top: 2px;
   margin-left: 2rem;
   padding-top: 1rem;
+  color: #E58869;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px rgba(206,196,177,0.54);
 }
 
 /* Login Form  */
