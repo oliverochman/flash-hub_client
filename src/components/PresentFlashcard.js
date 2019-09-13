@@ -138,7 +138,7 @@ export class PresentFlashcard extends Component {
         </Container>
 
         <CategoryButtons
-          getCategoryDeck={this.state.getCategoryDeck} />
+          getCategoryDeck={this.getCategoryDeck} />
       </>
     )
   }

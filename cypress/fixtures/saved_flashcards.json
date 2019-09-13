@@ -1,5 +1,5 @@
 {
-  "saved_flashcards": [
+  "savedFlashcards": [
     {
       "id": 1,
       "question": "var s = String; typeof s will be what?",

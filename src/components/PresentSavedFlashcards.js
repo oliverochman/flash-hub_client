@@ -4,9 +4,6 @@ import SavedFlashcard from './SavedFlashcard';
 import { connect } from 'react-redux';
 import AlertMessage from './AlertMessage';
 
-
-
-
 class PresentSavedFlashcards extends Component {
   state = {
     savedFlashcards: [],
@@ -35,7 +32,7 @@ class PresentSavedFlashcards extends Component {
     try {
       const response = await axios.get(`http://localhost:3000/api/saved_flashcards/?status=${currentCollection}`);
       this.setState({ 
-        savedFlashcards: response.data.saved_flashcards,
+        savedFlashcards: response.data.savedFlashcards,
         activeCard: 0,
         currentCollection: currentCollection,
         otherCollection: currentCollection == "red" ? "yellow" : "red"
