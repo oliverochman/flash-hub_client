@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import { Modal, Button, Container, Card, Grid, Label, Reveal } from 'semantic-ui-react';
 
-class SavedFlashcards extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      saved_flashcards: []
-    };
-  };
-  render() {
+const SavedFlashcards = (props) => {
+    let flashcard = props.flashcard;
 
   return (
     <>
-      <Modal id='my-flashcards' 
-            centered={false} 
+      <Modal centered={false} 
             trigger={<Button id='my-flashcards-button'>
             My Flashcards
             </Button>}>
@@ -22,7 +15,7 @@ class SavedFlashcards extends Component {
           <Grid.Column width={11}>
           <Button>Red</Button>
           <Button>Red + Yellow</Button>
-            <Reveal animated='fade' id='My-flashcard'>
+            <Reveal animated='fade' id={`saved_id_${flashcard.id}`}>
               <Reveal.Content visible>
                 <Card style={{ width: 580, height: 400 }}>
                   <Grid.Column width={2}>
@@ -66,5 +59,5 @@ class SavedFlashcards extends Component {
       </>
     )
   }
-}
+
 export default SavedFlashcards;

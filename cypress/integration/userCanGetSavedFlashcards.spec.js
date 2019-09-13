@@ -20,7 +20,7 @@ describe('User can get saved flashcards', () => {
   it('Chooses to see flashcards with status red', () => {
 
     cy.get('#my-flashcards-button').click()
-    cy.get('#my-flashcards').within(() => {
+    cy.get('#saved_id_1').within(() => {
       cy.get('#category_JavaScript').contains('JavaScript');
       cy.get('#saved_question_1').contains('How can you include an external javascript file?');
       cy.get('#saved_answer_1').contains("/script src='myfile.js'/");

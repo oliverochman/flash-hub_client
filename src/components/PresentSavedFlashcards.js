@@ -26,16 +26,29 @@ class PresentSavedFlashcards extends Component {
     }
   };
 
+  nextCard = () => {
+    if (this.state.activeCard == saved_flashcard.last) {
+      this.setState({
+        activeCard: 0
+      })
+    } else {
+      this.setState({
+        activeCard: activeCard + 1
+      })
+    }
+  };
+
   render() {
+    const savedFlashcards = this.state.SavedFlashcards;
     let savedFlashcardDisplay;
 
     if (this.state.saved_flashcards.length >= 1) {
       savedFlashcardDisplay = (
         <SavedFlashcards
           // currentDeckCategory={'User Saved'}
-          flashcard={this.state.savedFlashcards[this.state.activeCard]}
-          key={this.state.savedFlashcards[this.state.activeCard].id}
-          // nextCard={this.nextCard}
+          flashcard={savedFlashcards[this.state.activeCard]}
+          key={savedFlashcards[this.state.activeCard].id}
+          nextCard={this.nextCard}
         />
       );
     };
