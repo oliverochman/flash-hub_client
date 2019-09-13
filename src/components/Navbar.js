@@ -51,7 +51,11 @@ class Navbar extends Component {
 
     return (
       <Menu id='navbar'>
-        <Header position='left' id='header' style={{ color: 'brown', fontSize: '2rem', fontFamily: 'Lexend Giga' }}>
+        <Header 
+          position='left' 
+          id='header' 
+          style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Londrina Shadow' }}
+        >
           Flashcard Hub
         </Header>
         <Menu.Menu position='right'>
