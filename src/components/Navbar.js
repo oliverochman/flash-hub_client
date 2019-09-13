@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Menu, Header } from 'semantic-ui-react';
 import '../styling/customize.css';
 import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
 import PresentSavedFlashcards from './PresentSavedFlashcards';
 import { connect } from 'react-redux';
 import { Modal, Button } from 'semantic-ui-react';
@@ -11,12 +12,9 @@ import { Modal, Button } from 'semantic-ui-react';
 class Navbar extends Component {
   state = {}
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
   render() {
     let loginActions;
     let userSavedFlashcards;
-    const { activeItem } = this.state;
 
     if (this.props.currentUser.isSignedIn === false) {
       loginActions = (
@@ -24,12 +22,8 @@ class Navbar extends Component {
           <Menu.Item>
             <LoginForm />
           </Menu.Item>
-          <Menu.Item style={{ color: '#E58869' }}
-            name='signup'
-            active={activeItem === 'signup'}
-            onClick={this.handleItemClick}
-          >
-            Sign Up
+          <Menu.Item>
+            <SignupForm />
           </Menu.Item>
         </>
       );

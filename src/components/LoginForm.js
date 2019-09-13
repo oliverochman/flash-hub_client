@@ -41,6 +41,7 @@ class LoginForm extends Component {
                 <input
                   id='email'
                   placeholder='E-mail'
+                  value={this.state.email}
                   onChange={e => this.setState({ email: e.target.value })}
                 />
               </Form.Field>
