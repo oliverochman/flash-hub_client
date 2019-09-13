@@ -6,8 +6,8 @@ import AlertMessage from './AlertMessage';
 
 class LoginForm extends Component {
   state = {
-    email: [],
-    password: []
+    email: '',
+    password: ''
   }
 
   loginHandler = e => {
@@ -42,6 +42,7 @@ class LoginForm extends Component {
                 <input
                   id='email'
                   placeholder='E-mail'
+                  value={this.state.email}
                   onChange={e => this.setState({ email: e.target.value })}
                 />
               </Form.Field>

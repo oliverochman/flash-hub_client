@@ -3,7 +3,11 @@ import { generateAuthActions } from 'redux-token-auth';
 const config = {
   authUrl: "http://localhost:3000/api/auth",
   userAttributes: {
-    uid: "uid"
+    id: "id",
+    uid: "uid",
+  },
+  userRegistrationAttributes: {
+    password_confirmation: "password_confirmation",
   }
 };
 

@@ -1,0 +1,52 @@
+{
+  "savedFlashcards": [
+    {
+      "id": 1,
+      "question": "var s = String; typeof s will be what?",
+      "answer": "function",
+      "status": "red"
+    },
+  
+    {
+      "id": 2,
+      "question": "How do you access the function you are in (e.g. for a factorial)?",
+      "answer": "Use the name of the function. Arguments.caller is deprecated.",
+      "status": "red"
+    },
+  
+    {
+      "id": 3,
+      "question": "What does a for ... in loop do and what does it look like?",
+      "answer": "It iterates over the enumerable properties in an object like this: for (var prop in obj) {// optionally, find only properties of this object, not the objects from which it inherits if (obj.hasOwnProperty(prop) { // do something",
+      "status": "red"
+    },
+  
+    {
+      "id": 4,
+      "question": "var a = [a,b,c,d,e]. What does b = a.splice() do?",
+      "answer": "a will become an empty array and b will become [a,b,c,d,e]",
+      "status": "red"
+    },
+  
+    {
+      "id": 5,
+      "question": "Turn 'Tom', 'Bill', 'Jerry' into the string 'Tom, Bill, Jerry'",
+      "answer": "Use array.join(', ')",
+      "status": "red"
+    },
+  
+    {
+      "id": 6,
+      "question": "What is a function declaration compared to a function expression?",
+      "answer": "declaration: function myFunc(){ ... }, expression: var myFunc = function() { ... }",
+      "status": "red"
+    },
+  
+    {
+      "id": 7,
+      "question": "How could you get today’s day (e.g. “Monday”) from the date object?",
+      "answer": "You need to make an array with Sunday at 0 index and Saturday at 7 index. Then use getDay() and find the day using your array.",
+      "status": "red"
+    }
+  ]
+}

@@ -24,8 +24,8 @@ describe('Visitor can choose decks of a specific category', () => {
     });
 
     cy.route({
-      method: 'PUT',
-      url: 'http://localhost:3000/api/flashcards/**',
+      method: 'POST',
+      url: 'http://localhost:3000/api/saved_flashcards/**',
       response: 'fixture:successful_update_flashcard_status.json',
       status: 200
     });
