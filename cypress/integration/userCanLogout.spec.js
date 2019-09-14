@@ -21,7 +21,6 @@ describe('User can Log Out', () => {
 
     cy.get('#logout-button').should('exist');
     cy.get('#logout-button').click();
-    cy.get('#flash').should('contain',  'You have successfully logged out.')
     cy.get('#login-button').should('exist');
   });
   
