@@ -11,7 +11,6 @@ class LoginForm extends Component {
   }
 
   loginHandler = e => {
-    debugger;
     e.preventDefault();
     const { signInUser } = this.props;
     const { email, password } = this.state;

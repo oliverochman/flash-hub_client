@@ -8,8 +8,6 @@ import PresentSavedFlashcards from './PresentSavedFlashcards';
 import { connect } from 'react-redux';
 import { Modal, Button } from 'semantic-ui-react';
 
-
-
 class Navbar extends Component {
   state = {}
 
@@ -34,8 +32,7 @@ class Navbar extends Component {
       userSavedFlashcards = (
         <>
           <Menu.Item>
-            <Modal 
-              centered={false}
+            <Modal
               id='modal'
               trigger={
                 <Button id='my-flashcards-button'>
