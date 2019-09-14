@@ -37,9 +37,9 @@ export class PresentFlashcard extends Component {
     }
 
     if (this.state.onlySpecificTypeOfDeck === true) {
-      response = await axios.get(`/api/decks/?page=${page}&category=${this.state.deckCategory}`);
+      response = await axios.get(`http://localhost:3000/api/decks/?page=${page}&category=${this.state.deckCategory}`);
     } else {
-      response = await axios.get(`/api/decks/?page=${page}`);
+      response = await axios.get(`http://localhost:3000/api/decks/?page=${page}`);
     }
 
     this.setState({
@@ -62,7 +62,7 @@ export class PresentFlashcard extends Component {
   getCategoryDeck = async (event) => {
     let category = event.target.id
 
-    const response = await axios.get(`/api/decks/?category=${category}`);
+    const response = await axios.get(`http://localhost:3000/api/decks/?category=${category}`);
 
     this.setState({
       flashcards: response.data.decks[0].flashcards,
@@ -93,7 +93,7 @@ export class PresentFlashcard extends Component {
 
   nextCard = (event) => {
     if (event.target.id == 'next_button') {
-      if (this.state.activeFlashcard + 1 == 9) {
+      if (this.state.activeFlashcard + 1 == 10) {
         this.setState({
           renderDeckOption: true
         })

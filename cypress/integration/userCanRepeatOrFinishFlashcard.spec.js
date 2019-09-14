@@ -13,7 +13,7 @@ describe('A flashcard has tree buttons to repeat or finish a card', () => {
       response: 'fixture:successful_update_flashcard_status.json',
       status: 200
     });
-    cy.visit('http://localhost:3001');
+    cy.user_successful_login('julie@dash.com', 'password');
   });
 
   describe("Flashcard", async () => {
