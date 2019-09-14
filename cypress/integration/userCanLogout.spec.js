@@ -12,7 +12,6 @@ describe('User can Log Out', () => {
   });
 
   it('User can successfully log out', () => {
-    debugger;
     cy.route({
       method:'DELETE',
       url: 'http://localhost:3000/api/auth/sign_out',
