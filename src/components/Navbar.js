@@ -31,8 +31,7 @@ class Navbar extends Component {
       userSavedFlashcards = (
         <>
           <Menu.Item>
-            <Modal 
-              centered={false}
+            <Modal
               id='modal'
               trigger={
                 <Button id='my-flashcards-button'>

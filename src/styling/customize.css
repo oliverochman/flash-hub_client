@@ -16,6 +16,7 @@
   color: rgb(125, 150, 37);
 }
 
+
 /* Login and Signup Buttons */ 
 #login-button {
   background-color: rgb(255, 255, 255);
@@ -49,26 +50,28 @@
   box-shadow: none !important;
 }
 
+
 /* Category buttons */
-#ruby {
-  border: 2px solid rgb(201, 184, 29);
+.button-class{
   border-radius: 5px;
+}
+
+#ruby {
+  border: 2px solid rgb(228, 156, 24);
+  color: rgb(228, 156, 24);
   background-color: white;
-  color: rgb(201, 184, 29)
 }
 
 #javascript{  
-  border: 2px solid rgb(125, 150, 37);
-  border-radius: 5px;
+  border: 2px solid rgb(202, 98, 64);
+  color: rgb(202, 98, 64);
   background-color: white;
-  color: rgb(125, 150, 37);
 }
 
 #commands{
-  border: 2px solid rgb(131, 75, 57);
-  border-radius: 5px;
+  border: 2px solid rgb(125, 150, 37);
+  color: rgb(125, 150, 37);
   background-color: white;
-  color: rgb(131, 75, 57);
 }
 
 #category-buttons{
@@ -76,6 +79,37 @@
   bottom: 0;
   width: 100%;
 }
+
+
+/* Saved Flashcard */
+#change_collection{  
+  border: 2px solid rgb(228, 156, 24);
+  color:rgb(228, 156, 24);
+  background-color: white;
+}
+
+#previous_card{  
+  border: 2px solid rgb(226, 118, 75);
+  color:rgb(226, 118, 75);
+  background-color: white;
+}
+
+#next_card{  
+  border: 2px solid rgb(157, 187, 47);
+  color: rgb(125, 150, 37);
+  background-color: white;
+}
+
+#saved-flashcard-wrapper{
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
+#saved-flashcard-button-wrapper{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
 
 /* Header */ 
 #header{
@@ -86,6 +120,7 @@
   letter-spacing: 2px;
   text-shadow: 2px 2px 2px rgba(206,196,177,0.54);
 }
+
 
 /* Login Form  */
 #password-title{
@@ -99,6 +134,7 @@
 #login-modal{
   align-items: center;
 }
+
 
 /* Modal  */
 #modal {
