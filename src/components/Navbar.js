@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Menu, Header } from 'semantic-ui-react';
 import '../styling/customize.css';
 import LoginForm from './LoginForm';
+import Logout from './Logout'
 import SignupForm from './SignupForm';
 import PresentSavedFlashcards from './PresentSavedFlashcards';
 import { connect } from 'react-redux';
@@ -14,6 +15,8 @@ class Navbar extends Component {
 
   render() {
     let loginActions;
+    let logoutActions;
+    const { activeItem } = this.state;
     let userSavedFlashcards;
 
     if (this.props.currentUser.isSignedIn === false) {
@@ -42,9 +45,7 @@ class Navbar extends Component {
                 <PresentSavedFlashcards />
               </Modal>
           </Menu.Item>
-          <Menu.Item>
-            Log Out
-          </Menu.Item>
+            <Logout />
         </>
       ) 
     }
@@ -60,6 +61,7 @@ class Navbar extends Component {
         </Header>
         <Menu.Menu position='right'>
           {loginActions}
+          {logoutActions}
           {userSavedFlashcards}
         </Menu.Menu>
       </Menu>
