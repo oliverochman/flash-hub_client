@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Menu } from 'semantic-ui-react';
 import { signOutUser } from '../state/actions/reduxTokenAuthConfig';
-// import AlertMessage from './AlertMessage'
 
 class Logout extends Component {
 
