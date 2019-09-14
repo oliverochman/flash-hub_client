@@ -18,7 +18,7 @@ export class PresentFlashcard extends Component {
   };
 
   async componentDidMount() {
-    const response = await axios.get("/api/decks");
+    const response = await axios.get("http://localhost:3000/api/decks");
     this.setState({
       flashcards: response.data.decks[0].flashcards,
       nextDeckPage: response.data.meta.nextPage,
@@ -93,7 +93,7 @@ export class PresentFlashcard extends Component {
 
   nextCard = (event) => {
     if (event.target.id == 'next_button') {
-      if (this.state.activeFlashcard + 1 == 10) {
+      if (this.state.activeFlashcard + 1 == 9) {
         this.setState({
           renderDeckOption: true
         })

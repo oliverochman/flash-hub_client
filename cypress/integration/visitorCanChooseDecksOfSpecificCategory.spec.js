@@ -49,7 +49,7 @@ describe('Visitor can choose decks of a specific category', () => {
       cy.get('#ruby').click();
 
       for(let n = 0; n < 10; n ++){
-        cy.get('#green').click()
+        cy.get('#next_button').click()
         cy.wait(500)
       }
 

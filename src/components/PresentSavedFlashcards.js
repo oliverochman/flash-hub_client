@@ -30,7 +30,7 @@ class PresentSavedFlashcards extends Component {
     }
 
     try {
-      const response = await axios.get(`/api/saved_flashcards/?status=${currentCollection}`);
+      const response = await axios.get(`http://localhost:3000/api/saved_flashcards/?status=${currentCollection}`);
       this.setState({ 
         savedFlashcards: response.data.savedFlashcards,
         activeCard: 0,

@@ -7,16 +7,14 @@ import { verifyCredentials } from "./state/actions/reduxTokenAuthConfig";
 import { setupInterceptors } from "./modules/axiosInterceptor";
 import axios from 'axios';
 
-const development = 'http://localhost:3000'
-const production = 'https://flashcard-hub.herokuapp.com/'
+// const development = 'http://localhost:3000'
+// const production = 'https://flashcard-hub.herokuapp.com/'
 
-axios.defaults.baseURL = production
+// axios.defaults.baseURL = production
 
 const store = configureStore();
 verifyCredentials(store);
 setupInterceptors();
-
-
 
 
 ReactDOM.render(
