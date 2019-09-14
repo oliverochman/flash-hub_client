@@ -47,6 +47,18 @@
   box-shadow: none !important;
 }
 
+#logout-button {
+  background-color: rgb(255, 255, 255);
+  border: white;
+  color: rgb(231, 148, 114);
+  font-weight: bolder;
+}
+
+#logout-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 #submit-login-form:focus {
   outline: none !important;
   box-shadow: none !important;
