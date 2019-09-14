@@ -1,6 +1,6 @@
 import React from 'react';
 import "../styling/customize.css";
-import { Reveal, Card, Button, Grid, Label } from 'semantic-ui-react';
+import { Container, Reveal, Card, Button, Grid, Label } from 'semantic-ui-react';
 
 const Flashcard = (props) => {
   let flashcard = props.flashcard;
@@ -8,7 +8,8 @@ const Flashcard = (props) => {
   
   return (
     <>
-      <Grid centered columns={2} id='flashcard-wrapper'>
+    <Container>
+      <Grid centered id='flashcard-wrapper'>
         <Grid.Column width={11}>
           <Reveal animated='fade' id={`id_${flashcard.id}`}>
             <Reveal.Content visible>
@@ -77,6 +78,7 @@ const Flashcard = (props) => {
           </Button>
         </Grid.Column>
       </Grid>
+      </Container>
     </>
   )
 };

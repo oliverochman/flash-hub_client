@@ -2,8 +2,8 @@
 
 /* Flashcard positioning */
 #flashcard-wrapper{
-  margin-top: 30px;
-  margin-left: 85px;
+  padding-top: 20px;
+  padding-left: 71px;
 }
 
 /* Status buttons */
@@ -11,15 +11,27 @@
   background-color: #FCA17E;
   color: rgb(131, 75, 57);
 }
+#red:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 #yellow{
   background-color: #FFF389;
   color: rgb(150, 136, 16);
 }
+#yellow:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 #green {
   background-color: #D1E687;
   color: rgb(125, 150, 37);
+}
+#green:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 
@@ -77,17 +89,29 @@
   color: rgb(228, 156, 24);
   background-color: white;
 }
+#ruby:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 #javascript{  
   border: 2px solid rgb(202, 98, 64);
   color: rgb(202, 98, 64);
   background-color: white;
 }
+#javascript:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 #commands{
   border: 2px solid rgb(125, 150, 37);
   color: rgb(125, 150, 37);
   background-color: white;
+}
+#commands:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 #category-buttons{
@@ -149,7 +173,7 @@
 }
 
 #footer{
-  margin-bottom: 7px;
+  margin-bottom: 0px;
 }
 
 /* Login Form  */
