@@ -14,7 +14,7 @@ const SavedFlashcard = (props) => {
                 <Reveal.Content visible>
                   <Card style={{ width: 580, height: 400 }}>
                     <Grid.Column width={2}>
-                    <Label ribbon as='a' color='olive' id={`category_${savedFlashcard.status}`}>
+                    <Label ribbon className='saved-ribbon' id={`category_${savedFlashcard.status}`}>
                       {savedFlashcard.status} collection
                     </Label>
                     </Grid.Column>
@@ -26,7 +26,7 @@ const SavedFlashcard = (props) => {
                 <Reveal.Content>
                   <Card style={{ width: 580, height: 400 }}>
                     <Grid.Column width={2}>
-                    <Label ribbon as='a' color='olive' id={`category_${savedFlashcard.status}`}>
+                    <Label ribbon className='saved-ribbon' id={`category_${savedFlashcard.status}`}>
                       {savedFlashcard.status} collection
                     </Label>
                     </Grid.Column>

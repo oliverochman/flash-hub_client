@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Lexend+Giga|Londrina+Shadow|&display=swap');
 
+/* Flashcard positioning */
+#flashcard-wrapper{
+  margin-top: 30px;
+  margin-left: 85px;
+}
+
 /* Status buttons */
 #red {
   background-color: #FCA17E;
@@ -50,6 +56,16 @@
   box-shadow: none !important;
 }
 
+#my-flashcards-button {
+  background-color: rgb(255, 255, 255);
+  border: white;
+  color: rgb(231, 148, 114);
+}
+
+#my-flashcards-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 /* Category buttons */
 .button-class{
@@ -110,8 +126,19 @@
   margin-left: 10px;
 }
 
+.saved-ribbon{
+  background-color: #FCA17E!important;
+  border-color: rgb(196, 121, 92)!important;
+  color: white!important;
+}
 
-/* Header */ 
+.flashcard-ribbon{
+  background-color: rgb(191, 212, 113)!important;
+  border-color: rgb(126, 146, 55)!important;
+  color: rgb(125, 150, 37)!important;
+}
+
+/* Header & Footer */ 
 #header{
   margin-top: 2px;
   margin-left: 2rem;
@@ -121,6 +148,9 @@
   text-shadow: 2px 2px 2px rgba(206,196,177,0.54);
 }
 
+#footer{
+  margin-bottom: 7px;
+}
 
 /* Login Form  */
 #password-title{

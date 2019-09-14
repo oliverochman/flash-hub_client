@@ -7,8 +7,6 @@ import PresentSavedFlashcards from './PresentSavedFlashcards';
 import { connect } from 'react-redux';
 import { Modal, Button } from 'semantic-ui-react';
 
-
-
 class Navbar extends Component {
   state = {}
 
