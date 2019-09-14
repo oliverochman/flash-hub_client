@@ -36,7 +36,7 @@ const Flashcard = (props) => {
     ) 
     : 
     (
-      <Grid.Column width={11}>
+      <Grid.Column width={11} id='next-button-wrapper'>
         <Button
           className='update-button' 
           onClick={props.nextCard} 
