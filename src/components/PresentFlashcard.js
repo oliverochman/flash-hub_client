@@ -4,6 +4,8 @@ import { updateFlashcardStatus } from "../modules/updateFlashcardStatus";
 import Flashcard from "./Flashcard";
 import { Container, Button, Grid } from 'semantic-ui-react';
 import CategoryButtons from './CategoryButtons';
+import { connect } from 'react-redux';
+
 
 
 export class PresentFlashcard extends Component {
@@ -88,6 +90,26 @@ export class PresentFlashcard extends Component {
     });
   };
 
+
+  nextCard = (event) => {
+    if (event.target.id == 'next_button') {
+      if (this.state.activeFlashcard + 1 == 10) {
+        this.setState({
+          renderDeckOption: true
+        })
+      } else {
+        this.setState({
+          activeFlashcard: this.state.activeFlashcard + 1
+        })
+      }
+    } else {
+      this.setState({
+        activeFlashcard: this.state.activeFlashcard - 1
+      })
+    }
+
+  }
+
   render() {
     const flashcards = this.state.flashcards;
     let chooseDeckOption;
@@ -100,6 +122,9 @@ export class PresentFlashcard extends Component {
           key={flashcards[this.state.activeFlashcard].id}
           updateStatus={this.updateStatus}
           currentDeckCategory={this.state.deckCategory}
+          currentUserSignedIn={this.props.currentUser.isSignedIn}
+          nextCard={this.nextCard}
+          activeCard={this.state.activeFlashcard}
         />
       );
     };
@@ -147,4 +172,12 @@ export class PresentFlashcard extends Component {
   };
 };
 
-export default PresentFlashcard;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  };
+};
+
+export default connect(
+  mapStateToProps
+)(PresentFlashcard);

@@ -5,6 +5,59 @@ import { Container, Reveal, Card, Button, Grid, Label } from 'semantic-ui-react'
 const Flashcard = (props) => {
   let flashcard = props.flashcard;
   let currentDeckCategory = props.currentDeckCategory;
+  let buttons = props.currentUserSignedIn == true ?
+    (
+      <Grid.Column width={11}>
+        <Button 
+          className='update-button' 
+          onClick={props.updateStatus} 
+          id='red' 
+          style={{ width: 191, height: 50 }}
+        >
+          Repeat, please
+        </Button>
+        <Button
+          className='update-button' 
+          onClick={props.updateStatus} 
+          id='yellow' 
+          style={{ width: 191, height: 50 }}
+        >
+          Needs more practice
+        </Button>
+        <Button 
+          className='update-button' 
+          onClick={props.updateStatus} 
+          id='green' 
+          style={{ width: 191, height: 50 }}
+        >
+          I got this
+        </Button>
+      </Grid.Column>
+    ) 
+    : 
+    (
+      <Grid.Column width={11}>
+        <Button
+          className='update-button' 
+          onClick={props.nextCard} 
+          id='previous_button' 
+          disabled={
+            props.activeCard == 0 ? true : false
+          }
+          style={{ width: 191, height: 50 }}
+        >
+          Previous Card
+        </Button>
+        <Button 
+          className='update-button' 
+          onClick={props.nextCard} 
+          id='next_button' 
+          style={{ width: 191, height: 50 }}
+        >
+          Next Card
+        </Button>
+      </Grid.Column>
+    )
   
   return (
     <>
@@ -51,32 +104,7 @@ const Flashcard = (props) => {
           </Reveal>
         </Grid.Column>
 
-        <Grid.Column width={11}>
-          <Button 
-            className='update-button' 
-            onClick={props.updateStatus} 
-            id='red' 
-            style={{ width: 191, height: 50 }}
-          >
-            Repeat, please
-          </Button>
-          <Button
-            className='update-button' 
-            onClick={props.updateStatus} 
-            id='yellow' 
-            style={{ width: 191, height: 50 }}
-          >
-            Needs more practice
-          </Button>
-          <Button 
-            className='update-button' 
-            onClick={props.updateStatus} 
-            id='green' 
-            style={{ width: 191, height: 50 }}
-          >
-            I got this
-          </Button>
-        </Grid.Column>
+        {buttons}
       </Grid>
       </Container>
     </>
