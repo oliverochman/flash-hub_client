@@ -1,7 +1,10 @@
 import { generateAuthActions } from 'redux-token-auth';
 
+const development = 'http://localhost:3000/api/auth'
+const production = 'https://flashcard-hub.herokuapp.com/api/auth'
+
 const config = {
-  authUrl: "http://localhost:3000/api/auth",
+  authUrl: development,
   userAttributes: {
     id: "id",
     uid: "uid",
